@@ -11,4 +11,24 @@
       <image:title>georgebuilds — agentic systems, LLM workflows, AI infrastructure</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://georgebuilds.com/degu/</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://georgebuilds.com/degu/apple-touch-icon.png</image:loc>
+      <image:title>degu — local-first media browser</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://georgebuilds.com/kalos/</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://georgebuilds.com/kalos/favicon.svg</image:loc>
+      <image:title>kalos — self-hosted coding agent</image:title>
+    </image:image>
+  </url>
 </urlset>
