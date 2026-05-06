@@ -1,0 +1,7 @@
+# If you've found a security issue with georgebuilds.com or any of its
+# tools (degu, kalos), please get in touch. Responsible disclosure welcome.
+
+Contact: mailto:george@georgebuilds.com
+Expires: 2027-05-06T00:00:00Z
+Preferred-Languages: en
+Canonical: https://georgebuilds.com/.well-known/security.txt

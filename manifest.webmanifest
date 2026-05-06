@@ -1,0 +1,29 @@
+{
+  "name": "georgebuilds — George Fernandez",
+  "short_name": "georgebuilds",
+  "description": "George Fernandez — Senior Software Engineer & Agent Wrangler. Building agentic systems, LLM workflows, and AI infrastructure.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#050715",
+  "theme_color": "#0c1224",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/favicon-32.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "/assets/apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180",
+      "purpose": "any maskable"
+    }
+  ]
+}

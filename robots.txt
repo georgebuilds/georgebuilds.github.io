@@ -1,0 +1,54 @@
+# georgebuilds.com — open to AI crawlers and search engines.
+# Want to be discovered, indexed, and cited.
+
+User-agent: *
+Allow: /
+
+# OpenAI / ChatGPT
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic / Claude
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google AI / Gemini
+User-agent: Google-Extended
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Common Crawl (training data, often used as a base by other models)
+User-agent: CCBot
+Allow: /
+
+# Bytedance
+User-agent: Bytespider
+Allow: /
+
+# Diffbot
+User-agent: Diffbot
+Allow: /
+
+Sitemap: https://georgebuilds.com/sitemap.xml

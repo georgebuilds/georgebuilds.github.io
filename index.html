@@ -1,0 +1,2351 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>George Fernandez — Agent Wrangler & AI Engineer</title>
+
+    <!-- core SEO -->
+    <meta
+      name="description"
+      content="Senior Software Engineer & Agent Wrangler. Building agentic systems, LLM workflows, and AI infrastructure. Creator of degu, kalos, and Jarvis."
+    />
+
+    <!-- defense-in-depth content security policy -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://cloudflare-eth.com https://eth.llamarpc.com; frame-ancestors 'none'; base-uri 'self'; form-action 'none'"
+    />
+    <meta
+      name="keywords"
+      content="George Fernandez, agent engineer, agent wrangler, agentic systems, LLM engineer, LLM wrangling, AI engineer, AI workflow engineering, AI infrastructure, autonomous agents, multi-agent systems, Model Context Protocol, MCP, AI code review, prompt engineering, Claude, Anthropic, senior software engineer, full-stack engineer, Laravel, Go, TypeScript, React, PostgreSQL, georgebuilds, Tulsa software engineer"
+    />
+    <meta name="author" content="George Fernandez" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://georgebuilds.com/" />
+    <meta name="theme-color" content="#0c1224" />
+
+    <!-- favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+    <link rel="mask-icon" href="/favicon.svg" color="#d4a24c" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <!-- verified-identity / IndieWeb rel=me -->
+    <link rel="me" href="https://github.com/georgebuilds" />
+    <link rel="me" href="https://www.linkedin.com/in/georgebuilds" />
+    <link rel="me" href="https://bsky.app/profile/georgebuilds.com" />
+    <link rel="me" href="mailto:george@georgebuilds.com" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="georgebuilds" />
+    <meta property="og:url" content="https://georgebuilds.com/" />
+    <meta property="og:title" content="George Fernandez — Agent Wrangler & AI Engineer" />
+    <meta
+      property="og:description"
+      content="Senior Software Engineer & Agent Wrangler. Building agentic systems, LLM workflows, and AI infrastructure. Creator of degu, kalos, and Jarvis."
+    />
+    <meta property="og:image" content="https://georgebuilds.com/assets/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="georgebuilds. — agentic systems · llm workflows · ai infrastructure" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="George Fernandez — Agent Wrangler & AI Engineer" />
+    <meta
+      name="twitter:description"
+      content="Senior Software Engineer & Agent Wrangler. Building agentic systems, LLM workflows, and AI infrastructure. Creator of degu, kalos, and Jarvis."
+    />
+    <meta name="twitter:image" content="https://georgebuilds.com/assets/og.png" />
+    <meta name="twitter:image:alt" content="georgebuilds. — agentic systems · llm workflows · ai infrastructure" />
+
+    <!-- structured data: Person schema for richer search + LLM indexing -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "George Fernandez",
+        "alternateName": "georgebuilds",
+        "jobTitle": "Senior Software Engineer & Agent Wrangler",
+        "description": "Senior software engineer building agentic systems, LLM workflows, and AI infrastructure. Creator of degu, kalos, and Jarvis.",
+        "url": "https://georgebuilds.com/",
+        "image": "https://georgebuilds.com/assets/og.png",
+        "email": "george@georgebuilds.com",
+        "worksFor": { "@type": "Organization", "name": "Ludus" },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Tulsa",
+          "addressRegion": "OK",
+          "addressCountry": "US"
+        },
+        "knowsAbout": [
+          "Agentic systems",
+          "Autonomous agents",
+          "Multi-agent orchestration",
+          "LLM engineering",
+          "LLM wrangling",
+          "AI workflow engineering",
+          "AI infrastructure",
+          "Model Context Protocol",
+          "Prompt engineering",
+          "AI code review",
+          "Claude",
+          "Anthropic API",
+          "Full-stack engineering",
+          "Laravel",
+          "Go",
+          "TypeScript",
+          "React",
+          "PostgreSQL",
+          "Developer experience"
+        ],
+        "sameAs": [
+          "https://github.com/georgebuilds",
+          "https://bsky.app/profile/georgebuilds.com",
+          "https://www.linkedin.com/in/georgebuilds"
+        ]
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --sky-0: #050715;
+        --sky-1: #0a0f24;
+        --sky-2: #131a36;
+        --horizon: #1a1714;
+
+        --bone: #efe7d7;
+        --muted: #8e8675;
+        /* lifted to ~4.6:1 against the panel/sky bg for WCAG AA on small text */
+        --soft: #7e7769;
+        --accent: #d4a24c;
+        --accent-soft: rgba(212, 162, 76, 0.16);
+        --accent-line: rgba(212, 162, 76, 0.32);
+        --accent-strong: rgba(212, 162, 76, 0.55);
+        --accent-glow: rgba(212, 162, 76, 0.85);
+
+        --green: #6fbf73;
+        --green-glow: rgba(111, 191, 115, 0.55);
+        --red: #c44a3a;
+        --red-soft: #e57463;
+
+        --frame: rgba(239, 231, 215, 0.08);
+        --frame-strong: rgba(239, 231, 215, 0.16);
+        --panel-bg: rgba(5, 7, 21, 0.62);
+      }
+
+      html, body {
+        width: 100%;
+        min-height: 100%;
+        font-family: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+        background: var(--sky-0);
+        color: var(--bone);
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+      body.modal-open { overflow: hidden; }
+
+      body {
+        position: relative;
+        min-height: 100vh;
+        min-height: 100dvh;
+        overflow-x: hidden;
+        background: #000;
+      }
+      .bg-fade {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(ellipse 130% 55% at 50% 108%, var(--horizon) 0%, transparent 55%),
+          radial-gradient(ellipse 70% 45% at 80% 18%, rgba(64, 80, 160, 0.18), transparent 60%),
+          radial-gradient(ellipse 60% 40% at 18% 28%, rgba(140, 100, 180, 0.12), transparent 60%),
+          radial-gradient(ellipse 140% 90% at 50% -20%, var(--sky-2) 0%, var(--sky-1) 38%, var(--sky-0) 100%);
+        opacity: 0;
+        animation: bg-rise 4000ms ease-out forwards;
+      }
+      @keyframes bg-rise { to { opacity: 1; } }
+
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+        background-image:
+          radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.012) 1px, transparent 1.5px),
+          radial-gradient(circle at 25% 75%, rgba(255, 255, 255, 0.012) 1px, transparent 1.5px);
+        background-size: 3px 3px, 5px 5px;
+        background-position: 0 0, 1px 2px;
+        mix-blend-mode: screen;
+        opacity: 0.6;
+      }
+
+      .stars { position: fixed; inset: 0; pointer-events: none; z-index: 1; }
+      @keyframes twinkle {
+        0%, 100% { opacity: var(--o, 0.7); }
+        50% { opacity: calc(var(--o, 0.7) * 0.25); }
+      }
+      .stars circle { animation: twinkle var(--d, 4s) ease-in-out infinite; animation-delay: var(--delay, 0s); }
+
+      .shoot {
+        position: fixed; top: 18%; left: -10%;
+        width: 140px; height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(239, 231, 215, 0.85), transparent);
+        transform: rotate(15deg); opacity: 0;
+        z-index: 1; pointer-events: none;
+        animation: shoot 11s ease-in 4s infinite;
+      }
+      .shoot.b { top: 9%; width: 100px; animation-duration: 17s; animation-delay: 13s; transform: rotate(8deg); }
+      @keyframes shoot {
+        0% { transform: translate(0, 0) rotate(15deg); opacity: 0; }
+        4% { opacity: 0.9; }
+        12%, 100% { transform: translate(60vw, 18vh) rotate(15deg); opacity: 0; }
+      }
+
+      /* =============================================
+         STAGE
+         ============================================= */
+      .stage {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        min-height: 100dvh;
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: clamp(18px, 3vh, 32px) clamp(20px, 4vw, 48px);
+        gap: clamp(14px, 2vh, 22px);
+      }
+
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        opacity: 0;
+        animation: fade 360ms ease-out 60ms forwards;
+      }
+      .brand {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 12px;
+        font-weight: 700;
+        font-size: clamp(20px, 2.6vh, 26px);
+        letter-spacing: -0.02em;
+        margin: 0; /* reset <h1> default */
+        line-height: 1;
+      }
+      .brand .glyph {
+        color: var(--accent);
+        text-shadow: 0 0 10px rgba(212, 162, 76, 0.5);
+      }
+      .brand-tag {
+        color: var(--soft);
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        padding: 4px 9px 3px;
+        border: 1px solid var(--frame);
+        border-radius: 4px;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .brand-tag .dot {
+        width: 5px; height: 5px;
+        border-radius: 50%;
+        background: var(--green);
+        box-shadow: 0 0 8px var(--green-glow);
+        animation: pulse 2.4s ease-in-out infinite;
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.4; }
+      }
+
+      .links {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .link {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 12px;
+        padding: 7px 11px;
+        border-radius: 4px;
+        transition: color 0.15s, background 0.15s;
+      }
+      .link::before { content: '> '; color: var(--soft); }
+      .link:hover { color: var(--bone); background: var(--frame); }
+      .link:hover::before { color: var(--accent); }
+
+      /* =============================================
+         BUTTONS
+         ============================================= */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 6px 10px 5px;
+        border: 1px solid var(--frame-strong);
+        border-radius: 4px;
+        background:
+          linear-gradient(180deg, rgba(239, 231, 215, 0.06) 0%, rgba(239, 231, 215, 0.015) 100%);
+        color: var(--bone);
+        font: inherit;
+        font-size: 10.5px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-weight: 500;
+        text-decoration: none;
+        white-space: nowrap;
+        cursor: pointer;
+        transition: transform 0.08s, background 0.14s, border-color 0.14s, color 0.14s;
+      }
+      .btn:hover {
+        background:
+          linear-gradient(180deg, rgba(212, 162, 76, 0.18) 0%, rgba(212, 162, 76, 0.04) 100%);
+        border-color: var(--accent-line);
+        color: var(--accent);
+      }
+      .btn:active { transform: translateY(1px); }
+      .btn.primary {
+        background:
+          linear-gradient(180deg, rgba(212, 162, 76, 0.24) 0%, rgba(212, 162, 76, 0.07) 100%);
+        border-color: var(--accent-line);
+        color: var(--accent);
+      }
+      .btn.primary:hover {
+        background:
+          linear-gradient(180deg, rgba(212, 162, 76, 0.34) 0%, rgba(212, 162, 76, 0.13) 100%);
+        border-color: var(--accent-strong);
+      }
+      .btn.lg {
+        padding: 10px 14px 9px;
+        font-size: 11.5px;
+      }
+
+      kbd {
+        display: inline-block;
+        padding: 1px 6px 0;
+        font-family: inherit;
+        font-size: 10px;
+        color: var(--bone);
+        background: rgba(239, 231, 215, 0.06);
+        border: 1px solid var(--frame-strong);
+        border-bottom-width: 2px;
+        border-radius: 3px;
+        line-height: 1.5;
+      }
+
+      /* =============================================
+         GRID + PANELS
+         ============================================= */
+      .grid {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        gap: clamp(12px, 1.8vh, 18px);
+      }
+
+      .panel {
+        position: relative;
+        background: var(--panel-bg);
+        border: 1px solid var(--frame-strong);
+        border-radius: 6px;
+        backdrop-filter: blur(7px);
+        -webkit-backdrop-filter: blur(7px);
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        overflow: hidden;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.04),
+          0 10px 28px -16px rgba(0, 0, 0, 0.65);
+      }
+
+      .bracket {
+        position: absolute;
+        width: 14px; height: 14px;
+        pointer-events: none;
+        z-index: 6;
+      }
+      .bracket.tl { top: -1px; left: -1px;
+        border-top: 2px solid var(--accent-strong);
+        border-left: 2px solid var(--accent-strong); }
+      .bracket.tr { top: -1px; right: -1px;
+        border-top: 2px solid var(--accent-strong);
+        border-right: 2px solid var(--accent-strong); }
+      .bracket.bl { bottom: -1px; left: -1px;
+        border-bottom: 2px solid var(--accent-strong);
+        border-left: 2px solid var(--accent-strong); }
+      .bracket.br { bottom: -1px; right: -1px;
+        border-bottom: 2px solid var(--accent-strong);
+        border-right: 2px solid var(--accent-strong); }
+
+      .panel::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 5;
+        background:
+          repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 2px,
+            rgba(0, 0, 0, 0.13) 2px,
+            rgba(0, 0, 0, 0.13) 3px
+          ),
+          radial-gradient(ellipse 110% 100% at 50% 50%, transparent 65%, rgba(0, 0, 0, 0.45) 100%);
+        mix-blend-mode: multiply;
+        opacity: 0.85;
+      }
+
+      /* top row — full size, opacity settle */
+      .panel.p1, .panel.p2 {
+        opacity: 0;
+        animation: panel-fade 320ms ease-out forwards;
+      }
+      .panel.p1 { animation-delay: 80ms; }
+      .panel.p2 { animation-delay: 200ms; }
+      @keyframes panel-fade { to { opacity: 1; } }
+
+      /* bottom row — bloom from center, sequential */
+      .panel.boot {
+        transform-origin: center center;
+        transform: scaleY(0.005);
+        animation: panel-bloom 440ms cubic-bezier(0.2, 0.85, 0.3, 1) forwards;
+      }
+      .panel.boot.p3 { animation-delay: 560ms; }
+      .panel.boot.p4 { animation-delay: 1080ms; }
+      @keyframes panel-bloom {
+        0% {
+          transform: scaleY(0.005);
+          box-shadow:
+            0 0 18px rgba(212, 162, 76, 0.7),
+            0 0 4px rgba(212, 162, 76, 0.9),
+            inset 0 0 0 1px rgba(212, 162, 76, 0.7);
+        }
+        55% {
+          transform: scaleY(1);
+          box-shadow:
+            0 0 22px rgba(212, 162, 76, 0.55),
+            inset 0 0 0 1px rgba(212, 162, 76, 0.5);
+        }
+        100% {
+          transform: scaleY(1);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.04),
+            0 10px 28px -16px rgba(0, 0, 0, 0.65);
+        }
+      }
+
+      .panel.boot > .bracket,
+      .panel.boot > .panel-header,
+      .panel.boot > .panel-body {
+        opacity: 0;
+        animation: content-fade 240ms ease-out forwards;
+      }
+      .panel.boot.p3 > .bracket,
+      .panel.boot.p3 > .panel-header,
+      .panel.boot.p3 > .panel-body { animation-delay: 1020ms; }
+      .panel.boot.p4 > .bracket,
+      .panel.boot.p4 > .panel-header,
+      .panel.boot.p4 > .panel-body { animation-delay: 1540ms; }
+      @keyframes content-fade { to { opacity: 1; } }
+
+      .panel-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 9px 14px;
+        border-bottom: 1px solid var(--frame);
+        background: rgba(0, 0, 0, 0.22);
+        position: relative;
+        z-index: 3;
+      }
+      .panel-label {
+        font-size: 10.5px;
+        font-weight: 400; /* override <h2> default */
+        color: var(--accent);
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        margin: 0; /* reset <h2> default */
+      }
+      .panel-meta {
+        font-size: 10px;
+        color: var(--soft);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .panel-meta .dot {
+        width: 5px; height: 5px;
+        border-radius: 50%;
+        background: var(--soft);
+      }
+      .panel-meta .dot.green { background: var(--green); box-shadow: 0 0 5px var(--green-glow); }
+      .panel-meta .dot.amber {
+        background: var(--accent);
+        box-shadow: 0 0 6px var(--accent-glow);
+        animation: pulse 1.6s ease-in-out infinite;
+      }
+
+      .panel-body {
+        padding: clamp(14px, 2vh, 18px) clamp(14px, 2vw, 20px);
+        font-size: clamp(12px, 1.5vh, 13.5px);
+        line-height: 1.55;
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        position: relative;
+        z-index: 3;
+      }
+
+      /* =============================================
+         WHOAMI
+         ============================================= */
+      .prompt { color: var(--accent); }
+      .prompt-line { font-size: clamp(13px, 1.65vh, 14px); }
+      .caret {
+        display: inline-block;
+        width: 7px; height: 1em;
+        background: var(--accent);
+        vertical-align: -2px;
+        margin-left: 2px;
+        box-shadow: 0 0 6px var(--accent-glow);
+        animation: caret 1s steps(2, end) infinite;
+      }
+      @keyframes caret { 50% { opacity: 0; } }
+
+      .bio { display: flex; flex-direction: column; gap: 10px; }
+      .bio p { font-size: clamp(13px, 1.65vh, 14px); line-height: 1.6; }
+      .bio strong { font-weight: 700; }
+      .bio a {
+        color: var(--accent);
+        text-decoration: none;
+        border-bottom: 1px dotted var(--accent-line);
+        transition: border-color 0.15s;
+      }
+      .bio a:hover { border-bottom-color: var(--accent); }
+      .bio em { color: var(--muted); font-style: normal; }
+
+      .stream {
+        clip-path: inset(0 100% 0 0);
+        animation: stream-wipe 620ms cubic-bezier(0.6, 0, 0.4, 1) forwards;
+      }
+      @keyframes stream-wipe { to { clip-path: inset(0 0 0 0); } }
+      .stream.s1 { animation-delay: 1000ms; }
+      .stream.s2 { animation-delay: 1500ms; }
+
+      /* =============================================
+         TOOLS
+         ============================================= */
+      .tools .panel-body { gap: 10px; }
+      /* The .tools panel itself is the container-query context. When the panel is
+         wide (single-column page layout on a roomy viewport), the two tool cards
+         arrange side-by-side. When the page snaps to its 2-col grid and tools
+         becomes the narrower right column, the cards naturally stack again. */
+      .panel.tools {
+        container-type: inline-size;
+        container-name: tools-panel;
+      }
+      @container tools-panel (min-width: 660px) {
+        .tools .panel-body {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          align-items: start;
+        }
+        /* readout spans both columns, anchored beneath the cards */
+        .tools .tools-readout { grid-column: 1 / -1; }
+      }
+      .tool-card {
+        position: relative;
+        display: grid;
+        grid-template-columns: 56px minmax(0, 1fr);
+        gap: 12px;
+        align-items: start;
+        text-decoration: none;
+        color: var(--bone);
+        padding: 11px 13px;
+        border-radius: 4px;
+        border: 1px solid var(--frame);
+        background: rgba(239, 231, 215, 0.025);
+        transition: all 0.18s;
+      }
+      .tool-card:hover {
+        background: rgba(239, 231, 215, 0.06);
+        border-color: var(--accent-line);
+        transform: translateY(-1px);
+      }
+      .tool-card:active { transform: translateY(0); }
+      .tool-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 4px;
+        background: rgba(0, 0, 0, 0.35);
+        border: 1px solid var(--frame);
+        object-fit: cover;
+        display: block;
+        flex: 0 0 auto;
+        box-shadow:
+          inset 0 0 0 1px rgba(0, 0, 0, 0.4),
+          0 1px 0 rgba(255, 255, 255, 0.04);
+      }
+      .tool-main {
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .tool-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .tool-status {
+        font-size: 9.5px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        padding: 3px 7px;
+        border-radius: 3px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        flex: 0 0 auto;
+        border: 1px solid var(--frame);
+      }
+      .tool-status .dot { width: 5px; height: 5px; border-radius: 50%; }
+      .status-deployed {
+        color: #a9dca8;
+        background: rgba(111, 191, 115, 0.06);
+        border-color: rgba(111, 191, 115, 0.22);
+      }
+      .status-deployed .dot { background: var(--green); box-shadow: 0 0 6px var(--green-glow); }
+      .status-inbound {
+        color: var(--accent);
+        background: var(--accent-soft);
+        border-color: var(--accent-line);
+      }
+      .status-inbound .dot {
+        background: var(--accent);
+        box-shadow: 0 0 6px var(--accent-glow);
+        animation: pulse 1.6s ease-in-out infinite;
+      }
+      .tool-name { font-weight: 700; font-size: 14px; letter-spacing: -0.01em; margin: 0; }
+      /* Anthropic brand-orange callout — used inline within tool descriptions */
+      .anthropic {
+        color: #d97757;
+        font-weight: 600;
+        text-shadow: 0 0 6px rgba(217, 119, 87, 0.25);
+      }
+      .tool-launch { margin-left: auto; }
+      .tool-tag {
+        color: var(--muted);
+        font-size: 11.5px;
+        line-height: 1.5;
+      }
+
+      .tool-card.streaming {
+        opacity: 0;
+        transform: translateY(4px);
+        animation: card-stream 380ms cubic-bezier(0.22, 0.9, 0.25, 1) forwards;
+      }
+      .tool-card.streaming.t1 { animation-delay: 420ms; }
+      .tool-card.streaming.t2 { animation-delay: 560ms; }
+      @keyframes card-stream { to { opacity: 1; transform: none; } }
+
+      .tools-readout {
+        margin-top: auto;
+        padding: 8px 10px;
+        border-top: 1px dashed var(--frame);
+        font-size: 10px;
+        color: var(--soft);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+      .tools-readout .row { display: flex; justify-content: space-between; gap: 10px; }
+      .tools-readout .row .v { color: var(--muted); }
+
+      /* =============================================
+         ACCESS NODE (terminal launcher)
+         ============================================= */
+      .access { min-height: 0; }
+      .access .panel-body {
+        gap: 10px;
+        justify-content: space-between;
+      }
+      .access-meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px 14px;
+        padding: 10px 0;
+        border-top: 1px dashed var(--frame);
+        border-bottom: 1px dashed var(--frame);
+        font-size: 10.5px;
+        color: var(--soft);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .access-meta .row { display: flex; justify-content: space-between; gap: 10px; }
+      .access-meta .row .v { color: var(--muted); }
+      .access-cta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .access-cta .hint {
+        font-size: 10px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--soft);
+      }
+
+      /* =============================================
+         ARTICLES
+         ============================================= */
+      .articles { min-height: 0; }
+      .articles .panel-body { gap: 6px; }
+      .article-row {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 12px;
+        align-items: center;
+        padding: 9px 12px;
+        border-radius: 4px;
+        border: 1px solid var(--frame);
+        background: rgba(239, 231, 215, 0.015);
+        font-size: 11.5px;
+        opacity: 0;
+        transform: translateY(4px);
+        animation: card-stream 360ms cubic-bezier(0.22, 0.9, 0.25, 1) forwards;
+      }
+      .article-row.r1 { animation-delay: 1740ms; }
+      .article-row.r2 { animation-delay: 1840ms; }
+      .article-row.r3 { animation-delay: 1940ms; }
+      .article-row .id {
+        color: var(--soft);
+        font-size: 9.5px;
+        letter-spacing: 0.16em;
+      }
+      .article-row .ghost {
+        display: inline-block;
+        height: 6px;
+        background: linear-gradient(90deg, rgba(239, 231, 215, 0.08) 0%, rgba(239, 231, 215, 0.025) 100%);
+        border-radius: 2px;
+      }
+      .article-row .ghost.w1 { width: 70%; }
+      .article-row .ghost.w2 { width: 50%; }
+      .article-row .ghost.w3 { width: 78%; }
+      .article-row .when {
+        font-size: 9.5px;
+        letter-spacing: 0.14em;
+        color: var(--soft);
+      }
+      .articles-empty {
+        margin-top: auto;
+        text-align: center;
+        font-size: 10.5px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+        padding: 8px 0 2px;
+        border-top: 1px dashed var(--frame);
+        opacity: 0;
+        animation: line-fade 320ms ease-out 2140ms forwards;
+      }
+      .articles-empty .accent { color: var(--accent); }
+      @keyframes line-fade { to { opacity: 1; } }
+
+      /* =============================================
+         STATUS STRIP
+         ============================================= */
+      .status {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 6px 24px;
+        padding: 4px 4px 0;
+        font-size: 10.5px;
+        color: var(--soft);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        opacity: 0;
+        animation: fade 360ms ease-out 240ms forwards;
+      }
+      .status-group:last-child { margin-left: auto; }
+
+      @media (max-width: 600px) {
+        .status { flex-direction: column; align-items: stretch; gap: 10px; }
+        .status-group { flex-direction: column; align-items: flex-start; gap: 3px; }
+        .status-group:last-child { margin-left: 0; align-items: flex-end; }
+        .status-group > * + *::before { content: none; margin: 0; }
+      }
+      @keyframes fade { to { opacity: 1; } }
+      .status-group {
+        display: inline-flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 4px 14px;
+      }
+      .status-group > * + *::before {
+        content: '·';
+        color: rgba(239, 231, 215, 0.22);
+        margin-right: 6px;
+        display: inline-block;
+      }
+      .status-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        white-space: nowrap;
+      }
+      .status-val { color: var(--muted); }
+      .status-item.eth a {
+        color: inherit;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .status-item.eth a:hover .status-val { color: var(--bone); }
+      @keyframes block-tick {
+        0%   { color: var(--accent); text-shadow: 0 0 8px var(--accent-glow); }
+        100% { color: var(--muted); text-shadow: none; }
+      }
+      .status-item.eth .status-val.tick { animation: block-tick 1.2s ease-out; }
+      .status .led {
+        width: 6px; height: 6px;
+        border-radius: 50%;
+        background: var(--green);
+        box-shadow: 0 0 6px var(--green-glow);
+        animation: pulse 2.4s ease-in-out infinite;
+      }
+
+      /* =============================================
+         MODAL — terminal session
+         ============================================= */
+      .modal {
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(16px, 4vh, 48px);
+      }
+      .modal.open { display: flex; }
+      .modal-backdrop {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0, 0, 0, 0.5), rgba(5, 7, 21, 0.85));
+        backdrop-filter: blur(5px) saturate(0.8);
+        -webkit-backdrop-filter: blur(5px) saturate(0.8);
+        opacity: 0;
+        animation: fade 220ms ease-out forwards;
+        cursor: pointer;
+      }
+      .modal-stage {
+        position: relative;
+        z-index: 1;
+        width: min(820px, 100%);
+        height: min(560px, calc(100vh - 96px));
+        display: flex;
+      }
+      .modal-panel {
+        width: 100%;
+        height: 100%;
+        transform-origin: center center;
+        transform: scaleY(0.005);
+        animation: panel-bloom 380ms cubic-bezier(0.2, 0.85, 0.3, 1) forwards;
+      }
+      .modal-panel > .bracket,
+      .modal-panel > .panel-header,
+      .modal-panel > .panel-body {
+        opacity: 0;
+        animation: content-fade 200ms ease-out 320ms forwards;
+      }
+      .modal.closing .modal-backdrop {
+        animation: fade-out 180ms ease-out forwards;
+      }
+      .modal.closing .modal-panel {
+        animation: panel-fold 200ms cubic-bezier(0.5, 0, 0.6, 0.5) forwards;
+      }
+      @keyframes fade-out { to { opacity: 0; } }
+      @keyframes panel-fold {
+        to { transform: scaleY(0.005); opacity: 0.4; }
+      }
+
+      .modal-close {
+        background: transparent;
+        border: 1px solid var(--frame);
+        color: var(--soft);
+        cursor: pointer;
+        font: inherit;
+        font-size: 9.5px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        padding: 3px 8px 2px;
+        margin-left: 8px;
+        border-radius: 3px;
+        transition: color 0.12s, background 0.12s, border-color 0.12s;
+      }
+      .modal-close:hover {
+        color: var(--bone);
+        background: var(--frame);
+        border-color: var(--frame-strong);
+      }
+
+      /* =============================================
+         REPL (used inside the modal)
+         ============================================= */
+      #modal .modal-panel .panel-body { padding: 0; gap: 0; }
+
+      /* =============================================
+         TOOL MODAL — retro codec call (MGS vibes)
+         ============================================= */
+      .modal--tool .modal-stage {
+        width: min(720px, 100%);
+        height: auto;
+        max-height: calc(100vh - 96px);
+      }
+      .modal--tool .modal-panel {
+        height: auto;
+        max-height: calc(100vh - 96px);
+        overflow: hidden;
+      }
+      .codec-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 9px 14px;
+        border-bottom: 1px solid var(--frame);
+        background: rgba(0, 0, 0, 0.32);
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        position: relative;
+        z-index: 3;
+      }
+      .codec-status {
+        color: var(--red);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        animation: codec-blink 2.4s ease-in-out infinite;
+      }
+      @keyframes codec-blink { 50% { opacity: 0.72; } }
+      .codec-status .led.red {
+        width: 6px; height: 6px;
+      }
+      .codec-freq {
+        color: var(--soft);
+        margin-left: auto;
+        font-size: 9.5px;
+      }
+
+      .codec-body {
+        display: grid;
+        grid-template-columns: 200px minmax(0, 1fr);
+        gap: 18px;
+        padding: 18px;
+        position: relative;
+        z-index: 3;
+        overflow-y: auto;
+      }
+      .codec-portrait { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+      .portrait-frame {
+        position: relative;
+        aspect-ratio: 1 / 1;
+        width: 100%;
+        border: 2px solid var(--accent-strong);
+        border-radius: 4px;
+        background: #0a0d18;
+        overflow: hidden;
+        box-shadow:
+          inset 0 0 26px rgba(212, 162, 76, 0.14),
+          0 0 18px rgba(212, 162, 76, 0.16);
+      }
+      .portrait-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: contrast(1.05) saturate(0.85) brightness(0.92);
+      }
+      .portrait-frame::after {
+        content: '';
+        position: absolute; inset: 0;
+        background:
+          repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 1px,
+            rgba(0, 0, 0, 0.36) 1px,
+            rgba(0, 0, 0, 0.36) 2px
+          ),
+          radial-gradient(circle at 50% 50%, transparent 50%, rgba(0, 0, 0, 0.55) 100%);
+        mix-blend-mode: multiply;
+        pointer-events: none;
+        z-index: 2;
+      }
+      .portrait-frame::before {
+        content: '';
+        position: absolute; inset: 0;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, transparent 30%, transparent 80%, rgba(255, 255, 255, 0.025) 100%);
+        pointer-events: none;
+        z-index: 3;
+      }
+      .portrait-label {
+        position: absolute;
+        bottom: 6px;
+        left: 8px;
+        font-size: 9px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--accent);
+        background: rgba(0, 0, 0, 0.7);
+        padding: 2px 6px 1px;
+        border-radius: 2px;
+        z-index: 4;
+      }
+      .audio-meter {
+        display: flex;
+        gap: 2px;
+        align-items: flex-end;
+        height: 16px;
+        padding: 0 2px;
+      }
+      .audio-meter .bar {
+        flex: 1;
+        background: var(--accent);
+        box-shadow: 0 0 4px var(--accent-glow);
+        transform-origin: bottom;
+        height: 100%;
+        transform: scaleY(0.25);
+        opacity: 0.55;
+        transition: transform 0.5s ease, opacity 0.5s ease;
+      }
+      .audio-meter.active .bar {
+        animation: audio-bar 0.7s ease-in-out infinite;
+        opacity: 1;
+      }
+      .audio-meter .bar:nth-child(1) { animation-delay: 0.00s; }
+      .audio-meter .bar:nth-child(2) { animation-delay: 0.10s; }
+      .audio-meter .bar:nth-child(3) { animation-delay: 0.05s; }
+      .audio-meter .bar:nth-child(4) { animation-delay: 0.18s; }
+      .audio-meter .bar:nth-child(5) { animation-delay: 0.08s; }
+      .audio-meter .bar:nth-child(6) { animation-delay: 0.22s; }
+      .audio-meter .bar:nth-child(7) { animation-delay: 0.04s; }
+      .audio-meter .bar:nth-child(8) { animation-delay: 0.16s; }
+      .audio-meter .bar:nth-child(9) { animation-delay: 0.12s; }
+      .audio-meter .bar:nth-child(10) { animation-delay: 0.20s; }
+      .audio-meter .bar:nth-child(11) { animation-delay: 0.06s; }
+      .audio-meter .bar:nth-child(12) { animation-delay: 0.14s; }
+      @keyframes audio-bar {
+        0%, 100% { transform: scaleY(0.25); opacity: 0.7; }
+        50% { transform: scaleY(0.95); opacity: 1; }
+      }
+
+      .codec-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+      .codec-chip {
+        font-size: 9.5px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        padding: 3px 7px;
+        border-radius: 3px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        flex: 0 0 auto;
+        border: 1px solid var(--frame);
+        background: rgba(0, 0, 0, 0.45);
+        color: var(--muted);
+      }
+      .codec-chip .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--soft); }
+      .codec-chip .dot.green { background: var(--green); box-shadow: 0 0 6px var(--green-glow); }
+      .codec-chip .dot.amber { background: var(--accent); box-shadow: 0 0 6px var(--accent-glow); animation: pulse 1.6s ease-in-out infinite; }
+      .codec-chip.green-fg { color: #a9dca8; border-color: rgba(111, 191, 115, 0.22); background: rgba(111, 191, 115, 0.06); }
+      .codec-chip.amber-fg { color: var(--accent); border-color: var(--accent-line); background: var(--accent-soft); }
+
+      .codec-info { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+      .codec-name {
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin: 0;
+        line-height: 1;
+        color: var(--bone);
+      }
+      .codec-tagline {
+        color: var(--accent);
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        margin: 0;
+      }
+      .codec-desc {
+        color: var(--bone);
+        font-size: 13px;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .codec-stack h3 {
+        font-size: 9.5px;
+        letter-spacing: 0.22em;
+        color: var(--soft);
+        text-transform: uppercase;
+        font-weight: 700;
+        margin: 0 0 8px;
+      }
+      .stack-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+      .stack-chips .chip {
+        font-size: 10px;
+        letter-spacing: 0.04em;
+        padding: 3px 8px 2px;
+        border-radius: 3px;
+        background: rgba(239, 231, 215, 0.04);
+        border: 1px solid var(--frame-strong);
+        color: var(--muted);
+        font-weight: 500;
+      }
+
+      .codec-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        padding-top: 10px;
+        border-top: 1px dashed var(--frame);
+        font-size: 11px;
+        letter-spacing: 0.04em;
+      }
+      .codec-meta .meta-pair { display: inline-flex; align-items: baseline; gap: 6px; }
+      .codec-meta .meta-label {
+        font-size: 9.5px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--soft);
+      }
+      .codec-meta .meta-value { color: var(--muted); }
+      .codec-meta .meta-link {
+        text-decoration: none;
+        border-bottom: 1px dotted var(--accent-line);
+        color: var(--accent);
+        transition: border-color 0.15s, color 0.15s;
+      }
+      .codec-meta .meta-link:hover { border-bottom-color: var(--accent); color: var(--bone); }
+
+      .codec-footer {
+        padding: 12px 18px;
+        border-top: 1px solid var(--frame);
+        background: rgba(0, 0, 0, 0.22);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        position: relative;
+        z-index: 3;
+      }
+      .codec-footer .btn { font-size: 11px; padding: 9px 16px 8px; }
+
+      @media (max-width: 600px) {
+        .codec-body { grid-template-columns: 1fr; padding: 14px; gap: 14px; }
+        .portrait-frame { max-width: 220px; margin: 0 auto; }
+        .audio-meter { max-width: 220px; margin: 0 auto; width: 100%; }
+        .codec-chips { justify-content: center; }
+        .codec-name { font-size: 26px; }
+      }
+      .repl-out {
+        flex: 1;
+        overflow-y: auto;
+        padding: 16px 18px 10px;
+        scrollbar-width: thin;
+        scrollbar-color: var(--frame-strong) transparent;
+        font-size: 12.5px;
+        line-height: 1.55;
+      }
+      .repl-out::-webkit-scrollbar { width: 6px; }
+      .repl-out::-webkit-scrollbar-thumb { background: var(--frame-strong); border-radius: 3px; }
+      .repl-line { white-space: pre-wrap; word-break: break-word; }
+      .repl-line.in { color: var(--bone); }
+      .repl-line.out { color: var(--muted); }
+      .repl-line.out a {
+        color: var(--accent);
+        text-decoration: none;
+        border-bottom: 1px dotted var(--accent-line);
+      }
+      .repl-line.out a:hover { border-bottom-color: var(--accent); }
+      .repl-line.err { color: var(--red-soft); }
+      .repl-line.warn { color: var(--accent); }
+      .repl-line.dim { color: var(--soft); }
+      .repl-line.boot-line { color: var(--soft); }
+      .repl-line.boot-line .ok { color: var(--green); }
+      .repl-line.http-status-2xx { color: var(--green); }
+      .repl-line.http-status-4xx,
+      .repl-line.http-status-5xx { color: var(--red-soft); }
+      .repl-line.http-header { color: var(--soft); }
+      .repl-line.http-body { color: var(--muted); }
+      .repl-line.http-body .k { color: var(--accent); }
+      .repl-line.http-body .s { color: var(--bone); }
+      .repl-line.http-body .n { color: var(--bone); }
+      .repl-line + .repl-line { margin-top: 2px; }
+      .repl-line.gap { margin-top: 8px; }
+      .repl-line.fade-in {
+        opacity: 0;
+        animation: line-fade 220ms ease-out forwards;
+      }
+      .repl-input-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 18px 14px;
+        border-top: 1px solid var(--frame);
+        background: rgba(0, 0, 0, 0.28);
+      }
+      .repl-input-row .prompt {
+        flex: 0 0 auto;
+        font-size: 12.5px;
+      }
+      #repl-input {
+        flex: 1;
+        background: transparent;
+        border: 0; outline: 0;
+        color: var(--bone);
+        font: inherit;
+        font-size: 12.5px;
+        caret-color: var(--accent);
+        min-width: 0;
+      }
+      #repl-input:disabled { color: var(--soft); }
+
+      .spinner {
+        display: inline-block;
+        width: 8px; text-align: left;
+      }
+      .spinner::after {
+        content: '';
+        display: inline-block;
+        animation: spinner 600ms steps(4) infinite;
+      }
+      @keyframes spinner {
+        0%   { content: ''; }
+        25%  { content: '.'; }
+        50%  { content: '..'; }
+        75%  { content: '...'; }
+        100% { content: ''; }
+      }
+
+      /* =============================================
+         responsive
+         ============================================= */
+      @media (min-width: 1600px) {
+        .grid {
+          grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+          grid-template-rows: minmax(0, auto) minmax(0, 1fr);
+          grid-auto-rows: auto;
+        }
+        .whoami { grid-column: 1; grid-row: 1; }
+        .tools { grid-column: 2; grid-row: 1; }
+        .access { grid-column: 1; grid-row: 2; }
+        .articles { grid-column: 2; grid-row: 2; }
+      }
+      @media (max-width: 620px) {
+        .modal { padding: 0; }
+        .modal-stage {
+          width: 100%;
+          height: 100vh;
+          height: 100dvh;
+        }
+        .modal-panel { border-radius: 0; border-left: 0; border-right: 0; }
+      }
+      @media (max-width: 520px) {
+        .links { gap: 0; }
+        .link { padding: 7px 8px; font-size: 11px; }
+        .brand-tag { display: none; }
+        .stage { padding: 16px 14px; }
+        .access-meta { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 380px) {
+        .top { flex-direction: column; gap: 10px; }
+      }
+
+      /* reduced motion */
+      @media (prefers-reduced-motion: reduce) {
+        .stars circle, .shoot, .top, .status, .panel, .panel.boot,
+        .panel.boot > *, .stream, .tool-card.streaming, .article-row,
+        .articles-empty, .brand-tag .dot, .panel-meta .dot.amber,
+        .status-inbound .dot, .status .led, .caret, .bg-fade,
+        .modal-backdrop, .modal-panel, .modal-panel > *, .spinner::after {
+          animation: none !important;
+        }
+        .bg-fade { opacity: 1; }
+        .panel.boot { transform: none; }
+        .panel.boot > * { opacity: 1; }
+        .stream { clip-path: inset(0); }
+        .tool-card.streaming { opacity: 1; transform: none; }
+        .article-row { opacity: 1; transform: none; }
+        .articles-empty { opacity: 1; }
+        .top, .status { opacity: 1; }
+        .modal-backdrop { opacity: 1; }
+        .modal-panel { transform: none; }
+        .modal-panel > * { opacity: 1; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-fade" aria-hidden="true"></div>
+    <svg class="stars" preserveAspectRatio="none" viewBox="0 0 100 100" aria-hidden="true"></svg>
+    <span class="shoot" aria-hidden="true"></span>
+    <span class="shoot b" aria-hidden="true"></span>
+
+    <div class="stage">
+      <header class="top">
+        <h1 class="brand">
+          <span>georgebuilds<span class="glyph">.</span></span>
+          <span class="brand-tag"><span class="dot"></span>station online</span>
+        </h1>
+        <nav class="links" aria-label="primary">
+          <a class="link" href="https://github.com/georgebuilds" target="_blank" rel="noopener">github</a>
+          <a class="link" href="https://bsky.app/profile/georgebuilds.com" target="_blank" rel="noopener">bluesky</a>
+        </nav>
+      </header>
+
+      <main class="grid">
+        <!-- whoami -->
+        <section class="panel whoami p1" aria-labelledby="lbl-whoami">
+          <span class="bracket tl"></span><span class="bracket tr"></span>
+          <span class="bracket bl"></span><span class="bracket br"></span>
+          <div class="panel-header">
+            <h2 class="panel-label" id="lbl-whoami">whoami</h2>
+            <span class="panel-meta"><span class="dot green"></span>/usr/local/george</span>
+          </div>
+          <div class="panel-body">
+            <p class="prompt-line">
+              <span class="prompt">george@station:~$</span>
+              <span id="typed-cmd"></span><span class="caret" id="caret"></span>
+            </p>
+            <div class="bio">
+              <p class="stream s1">
+                i'm <strong>george fernandez</strong> — senior software engineer at
+                <a href="https://ludus.com" target="_blank" rel="noopener">ludus</a>, building product
+                features &amp; the infrastructure underneath them.
+              </p>
+              <p class="stream s2">
+                off the clock i make small tools for myself and ship them. the agentic-coding era turned the habit into an addiction. the cargo bay's overflowing.
+                <em>this is the dock.</em>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- tools -->
+        <section class="panel tools p2" aria-labelledby="lbl-tools">
+          <span class="bracket tl"></span><span class="bracket tr"></span>
+          <span class="bracket bl"></span><span class="bracket br"></span>
+          <div class="panel-header">
+            <h2 class="panel-label" id="lbl-tools">tools</h2>
+            <span class="panel-meta"><span class="dot amber"></span>2 items</span>
+          </div>
+          <div class="panel-body">
+            <a class="tool-card streaming t1" href="https://georgebuilds.github.io/degu/" target="_blank" rel="noopener" data-tool="degu" aria-haspopup="dialog">
+              <img class="tool-icon" src="assets/degu.png" alt="degu mascot" loading="lazy" />
+              <div class="tool-main">
+                <div class="tool-row">
+                  <span class="tool-status status-deployed"><span class="dot"></span>deployed</span>
+                  <h3 class="tool-name">degu</h3>
+                  <span class="btn primary tool-launch">open ↗</span>
+                </div>
+                <p class="tool-tag">a media browser that lives next to your media — tags &amp; thumbnails travel with the drive.</p>
+              </div>
+            </a>
+
+            <a class="tool-card streaming t2" href="https://georgebuilds.github.io/kalos/" target="_blank" rel="noopener" data-tool="kalos" aria-haspopup="dialog">
+              <img class="tool-icon" src="assets/kalos.png" alt="kalos mascot" loading="lazy" />
+              <div class="tool-main">
+                <div class="tool-row">
+                  <span class="tool-status status-inbound"><span class="dot"></span>inbound</span>
+                  <h3 class="tool-name">kalos</h3>
+                  <span class="btn tool-launch">open ↗</span>
+                </div>
+                <p class="tool-tag">a self-hosted coding agent — dispatch a task, it opens the pr. now with <span class="anthropic">Claude Code</span>.</p>
+              </div>
+            </a>
+
+            <div class="tools-readout" aria-hidden="true">
+              <div class="row"><span>licenses</span><span class="v">degu agpl-3.0 · kalos mit</span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- access node (terminal launcher) -->
+        <section class="panel access boot p3" aria-labelledby="lbl-access">
+          <span class="bracket tl"></span><span class="bracket tr"></span>
+          <span class="bracket bl"></span><span class="bracket br"></span>
+          <div class="panel-header">
+            <h2 class="panel-label" id="lbl-access">access node</h2>
+            <span class="panel-meta"><span class="dot green"></span>tty0 · idle</span>
+          </div>
+          <div class="panel-body">
+            <div class="access-meta" aria-hidden="true">
+              <div class="row"><span>session</span><span class="v">offline</span></div>
+              <div class="row"><span>commands</span><span class="v">17</span></div>
+              <div class="row"><span>auth</span><span class="v">login →</span></div>
+              <div class="row"><span>shortcut</span><span class="v">backtick</span></div>
+            </div>
+            <div class="access-cta">
+              <button type="button" class="btn primary lg" id="open-terminal">open terminal ↗</button>
+              <span class="hint">or press <kbd>`</kbd></span>
+            </div>
+          </div>
+        </section>
+
+        <!-- articles -->
+        <section class="panel articles boot p4" aria-labelledby="lbl-articles">
+          <span class="bracket tl"></span><span class="bracket tr"></span>
+          <span class="bracket bl"></span><span class="bracket br"></span>
+          <div class="panel-header">
+            <h2 class="panel-label" id="lbl-articles">articles</h2>
+            <span class="panel-meta">0 entries</span>
+          </div>
+          <div class="panel-body">
+            <div class="article-row r1" aria-hidden="true">
+              <span class="id">[001]</span>
+              <span class="ghost w1"></span>
+              <span class="when">— · —</span>
+            </div>
+            <div class="article-row r2" aria-hidden="true">
+              <span class="id">[002]</span>
+              <span class="ghost w2"></span>
+              <span class="when">— · —</span>
+            </div>
+            <div class="article-row r3" aria-hidden="true">
+              <span class="id">[003]</span>
+              <span class="ghost w3"></span>
+              <span class="when">— · —</span>
+            </div>
+            <div class="articles-empty">
+              transmitter cold · <span class="accent">first dispatch inbound</span>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="status">
+        <div class="status-group">
+          <span class="status-item"><span class="led"></span>signal</span>
+          <span class="status-item">station: <span class="status-val">georgebuilds.com</span></span>
+          <span class="status-item">crew: <span class="status-val">1</span></span>
+        </div>
+        <div class="status-group">
+          <span class="status-item">stn_time: <span class="status-val" id="station-time">—</span></span>
+          <span class="status-item eth" id="eth-block" title="latest ethereum block height">
+            <a href="https://etherscan.io/blocks" target="_blank" rel="noopener">eth_block: <span class="status-val" id="eth-block-val">—</span></a>
+          </span>
+        </div>
+      </footer>
+    </div>
+
+    <!-- tool modal (codec call) -->
+    <div class="modal modal--tool" id="tool-modal" aria-hidden="true" inert>
+      <div class="modal-backdrop" id="tool-modal-backdrop"></div>
+      <div class="modal-stage">
+        <section class="panel modal-panel codec-panel" role="dialog" aria-modal="true" aria-labelledby="tool-modal-name">
+          <span class="bracket tl"></span><span class="bracket tr"></span>
+          <span class="bracket bl"></span><span class="bracket br"></span>
+          <div class="codec-header">
+            <span class="codec-status"><span class="led red"></span>incoming transmission</span>
+            <span class="codec-freq">freq <span id="tool-modal-freq">140.85</span> · ch-<span id="tool-modal-channel">--</span></span>
+            <button type="button" class="modal-close" id="tool-modal-close" aria-label="close transmission">[ esc ]</button>
+          </div>
+          <div class="codec-body">
+            <div class="codec-portrait">
+              <div class="portrait-frame">
+                <img id="tool-modal-img" src="" alt="" />
+                <span class="portrait-label" id="tool-modal-portrait-label">—</span>
+              </div>
+              <div class="audio-meter" aria-hidden="true">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+              </div>
+              <div class="codec-chips">
+                <span class="codec-chip" id="tool-modal-status-chip"><span class="dot"></span><span class="status-label">—</span></span>
+              </div>
+            </div>
+            <div class="codec-info">
+              <h2 class="codec-name" id="tool-modal-name">—</h2>
+              <p class="codec-tagline" id="tool-modal-tagline">—</p>
+              <p class="codec-desc" id="tool-modal-desc">—</p>
+              <div class="codec-stack">
+                <h3>stack</h3>
+                <div class="stack-chips" id="tool-modal-stack"></div>
+              </div>
+              <div class="codec-meta">
+                <span class="meta-pair"><span class="meta-label">license</span><span id="tool-modal-license" class="meta-value">—</span></span>
+                <span class="meta-pair"><span class="meta-label">repo</span><a id="tool-modal-repo" href="#" target="_blank" rel="noopener" class="meta-value meta-link">—</a></span>
+              </div>
+            </div>
+          </div>
+          <footer class="codec-footer">
+            <a class="btn primary" id="tool-modal-launch" href="#" target="_blank" rel="noopener">launch ↗</a>
+          </footer>
+        </section>
+      </div>
+    </div>
+
+    <!-- terminal modal -->
+    <div class="modal" id="modal" aria-hidden="true" inert>
+      <div class="modal-backdrop" id="modal-backdrop"></div>
+      <div class="modal-stage">
+        <section class="panel modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-label">
+          <span class="bracket tl"></span><span class="bracket tr"></span>
+          <span class="bracket bl"></span><span class="bracket br"></span>
+          <div class="panel-header">
+            <h2 class="panel-label" id="modal-label">terminal</h2>
+            <span class="panel-meta">
+              <span>session: <span id="session-id">—</span></span>
+              <button type="button" class="modal-close" id="modal-close" aria-label="close terminal">[ esc ]</button>
+            </span>
+          </div>
+          <div class="panel-body">
+            <div class="repl-out" id="repl-out" aria-live="polite"></div>
+            <form class="repl-input-row" id="repl-form" autocomplete="off">
+              <span class="prompt" id="prompt-label">george@station:~$</span>
+              <input
+                type="text"
+                id="repl-input"
+                autocomplete="off"
+                autocapitalize="off"
+                spellcheck="false"
+                aria-label="terminal input"
+              />
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      // ===== STARS =====
+      (() => {
+        const sky = document.querySelector('.stars');
+        const SVGNS = 'http://www.w3.org/2000/svg';
+        const N = 110;
+        for (let i = 0; i < N; i++) {
+          const c = document.createElementNS(SVGNS, 'circle');
+          const x = Math.random() * 100;
+          const y = Math.pow(Math.random(), 1.7) * 72;
+          const big = Math.random() < 0.06;
+          const r = big ? 0.45 + Math.random() * 0.35 : 0.14 + Math.random() * 0.3;
+          const o = (0.28 + Math.random() * 0.65).toFixed(2);
+          c.setAttribute('cx', x.toFixed(2));
+          c.setAttribute('cy', y.toFixed(2));
+          c.setAttribute('r', r.toFixed(3));
+          c.setAttribute('fill', big ? '#ffeed0' : '#efe7d7');
+          c.setAttribute('opacity', o);
+          c.style.setProperty('--o', o);
+          c.style.setProperty('--d', (3 + Math.random() * 5).toFixed(2) + 's');
+          c.style.setProperty('--delay', (Math.random() * -8).toFixed(2) + 's');
+          sky.appendChild(c);
+        }
+      })();
+
+      // ===== TYPEWRITER (whoami) =====
+      (() => {
+        const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const target = document.getElementById('typed-cmd');
+        const caret = document.getElementById('caret');
+        const word = 'whoami';
+        if (reduced) { target.textContent = word; caret.style.display = 'none'; return; }
+        let i = 0;
+        const tick = () => {
+          target.textContent = word.slice(0, i);
+          if (i++ <= word.length) setTimeout(tick, 75);
+          else setTimeout(() => caret.remove(), 3200);
+        };
+        setTimeout(tick, 380);
+      })();
+
+      // ===== STATION TIME =====
+      (() => {
+        const el = document.getElementById('station-time');
+        const fmt = () => {
+          const d = new Date();
+          const pad = (n) => String(n).padStart(2, '0');
+          return `${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())} utc`;
+        };
+        const update = () => (el.textContent = fmt());
+        update();
+        setInterval(update, 30_000);
+      })();
+
+      // ===== ETH BLOCK (live, paused while tab hidden) =====
+      (() => {
+        const val = document.getElementById('eth-block-val');
+        if (!val) return;
+        const fmt = new Intl.NumberFormat('en-US');
+        const endpoints = ['https://cloudflare-eth.com', 'https://eth.llamarpc.com'];
+        let last = null;
+        let pollHandle = null;
+        const poll = async () => {
+          for (const url of endpoints) {
+            try {
+              const ctl = new AbortController();
+              const t = setTimeout(() => ctl.abort(), 4000);
+              const r = await fetch(url, {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({ jsonrpc: '2.0', method: 'eth_blockNumber', params: [], id: 1 }),
+                signal: ctl.signal,
+              });
+              clearTimeout(t);
+              if (!r.ok) continue;
+              const j = await r.json();
+              if (!j || !j.result) continue;
+              const n = parseInt(j.result, 16);
+              if (!Number.isFinite(n) || n === last) return;
+              last = n;
+              val.textContent = fmt.format(n);
+              val.classList.remove('tick');
+              void val.offsetWidth;
+              val.classList.add('tick');
+              return;
+            } catch {}
+          }
+        };
+        const start = () => {
+          if (pollHandle) return;
+          pollHandle = setInterval(poll, 12_000);
+        };
+        const stop = () => {
+          if (!pollHandle) return;
+          clearInterval(pollHandle);
+          pollHandle = null;
+        };
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) stop();
+          else { poll(); start(); }
+        });
+        poll();
+        start();
+      })();
+
+      // ===== UTILITIES =====
+      const esc = (s) =>
+        String(s).replace(/[&<>"']/g, (c) =>
+          ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]
+        );
+
+      const uuid = () => {
+        if (crypto.randomUUID) return crypto.randomUUID();
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+          const r = (Math.random() * 16) | 0;
+          const v = c === 'x' ? r : (r & 0x3) | 0x8;
+          return v.toString(16);
+        });
+      };
+      const sessionId = uuid().slice(0, 8);
+      document.getElementById('session-id').textContent = sessionId;
+
+      // ===== AUDIO (synthesized shutter) =====
+      const audio = (() => {
+        const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let ctx = null;
+        const getCtx = () => {
+          if (reduced) return null;
+          if (!ctx) {
+            const AC = window.AudioContext || window.webkitAudioContext;
+            if (!AC) return null;
+            ctx = new AC();
+          }
+          if (ctx.state === 'suspended') ctx.resume();
+          return ctx;
+        };
+        const noise = (c, ms) => {
+          const len = Math.max(1, Math.floor((c.sampleRate * ms) / 1000));
+          const b = c.createBuffer(1, len, c.sampleRate);
+          const d = b.getChannelData(0);
+          for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+          return b;
+        };
+        const click = (c, { at = 0, ms = 50, type = 'highpass', freq = 2000, q = 0.7, gain = 0.25, attack = 0.001 }) => {
+          const src = c.createBufferSource();
+          src.buffer = noise(c, ms);
+          const f = c.createBiquadFilter();
+          f.type = type; f.frequency.value = freq; f.Q.value = q;
+          const g = c.createGain();
+          const t = c.currentTime + at;
+          g.gain.setValueAtTime(0, t);
+          g.gain.linearRampToValueAtTime(gain, t + attack);
+          g.gain.exponentialRampToValueAtTime(0.0001, t + ms / 1000);
+          src.connect(f); f.connect(g); g.connect(c.destination);
+          src.start(t);
+          src.stop(t + ms / 1000 + 0.01);
+        };
+        return {
+          open: () => {
+            const c = getCtx(); if (!c) return;
+            // sharp latch click → mechanical thunk
+            click(c, { at: 0,     ms: 14, type: 'highpass', freq: 3800, q: 0.5, gain: 0.32 });
+            click(c, { at: 0.012, ms: 70, type: 'lowpass',  freq: 720,  q: 1.3, gain: 0.18, attack: 0.002 });
+          },
+          close: () => {
+            const c = getCtx(); if (!c) return;
+            // inverse: thunk first, then latch click
+            click(c, { at: 0,    ms: 55, type: 'lowpass',  freq: 620,  q: 1.3, gain: 0.20, attack: 0.004 });
+            click(c, { at: 0.04, ms: 12, type: 'highpass', freq: 4200, q: 0.5, gain: 0.26 });
+          },
+        };
+      })();
+
+      // ===== MODAL =====
+      const modal = document.getElementById('modal');
+      const modalBackdrop = document.getElementById('modal-backdrop');
+      const modalClose = document.getElementById('modal-close');
+      const openBtn = document.getElementById('open-terminal');
+      const replInput = document.getElementById('repl-input');
+      const stage = document.querySelector('.stage');
+      let modalOpenedOnce = false;
+      let lastFocus = null;
+
+      // Sync `inert` based on which modal (if any) is open. Closed modals get
+      // inert (so their internal focusables aren't tabbable); when any modal
+      // is open, the underlying page is inert (focus trap).
+      const updateInert = () => {
+        const anyOpen = !!document.querySelector('.modal.open');
+        document.querySelectorAll('.modal').forEach((m) => {
+          if (m.classList.contains('open')) m.removeAttribute('inert');
+          else m.setAttribute('inert', '');
+        });
+        if (anyOpen) stage.setAttribute('inert', '');
+        else stage.removeAttribute('inert');
+      };
+
+      const openModal = () => {
+        if (modal.classList.contains('open')) return;
+        lastFocus = document.activeElement;
+        audio.open();
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+        updateInert();
+        // focus the input after the bloom; small delay reads more naturally
+        setTimeout(() => replInput.focus(), 60);
+        if (!modalOpenedOnce) {
+          modalOpenedOnce = true;
+          startBootSequence();
+        }
+      };
+      const closeModal = () => {
+        if (!modal.classList.contains('open')) return;
+        // cancel any in-progress login flow
+        if (mode !== 'repl' && mode !== 'submitting') setMode('repl', { silent: true });
+        audio.close();
+        modal.classList.add('closing');
+        setTimeout(() => {
+          modal.classList.remove('open', 'closing');
+          modal.setAttribute('aria-hidden', 'true');
+          if (!document.querySelector('.modal.open')) {
+            document.body.classList.remove('modal-open');
+          }
+          updateInert();
+          if (lastFocus && lastFocus.focus) lastFocus.focus();
+        }, 200);
+      };
+
+      openBtn.addEventListener('click', openModal);
+      modalClose.addEventListener('click', closeModal);
+      modalBackdrop.addEventListener('click', closeModal);
+
+      // ===== TOOL MODAL (codec call) =====
+      const toolModal = document.getElementById('tool-modal');
+      const toolModalBackdrop = document.getElementById('tool-modal-backdrop');
+      const toolModalClose = document.getElementById('tool-modal-close');
+      const toolModalLaunch = document.getElementById('tool-modal-launch');
+      let toolLastFocus = null;
+
+      const TOOLS_DATA = {
+        degu: {
+          name: 'degu',
+          channel: 'degu',
+          freq: '140.85',
+          img: 'assets/degu.png',
+          portraitLabel: 'degu',
+          tagline: 'a media browser that travels with your media.',
+          desc:
+            'browse, search, tag, preview, A–B-loop, trim, and rename media files. local-first; tags and the SQLite db live next to your media so the whole thing travels as one unit on a drive.',
+          stack: ['Preact 10', 'TypeScript', 'Vite 8', 'Tailwind v4', 'Go 1.25', 'SQLite', 'Wails v2', 'ffmpeg.wasm'],
+          license: 'AGPL-3.0',
+          status: { label: 'deployed', kind: 'green' },
+          repo: { label: 'github.com/georgebuilds/degu', href: 'https://github.com/georgebuilds/degu' },
+          launch: { label: 'launch ↗', href: 'https://georgebuilds.github.io/degu/' },
+        },
+        kalos: {
+          name: 'kalos',
+          channel: 'kalos',
+          freq: '141.12',
+          img: 'assets/kalos.png',
+          portraitLabel: 'kalos',
+          tagline: 'a self-hosted coding agent.',
+          // NB: `desc` is rendered via innerHTML — only allow trusted/static markup here, never user input
+          desc:
+            'POST a task; kalos clones the repo, runs <span class="anthropic">Claude Code</span> headless, commits, pushes, and opens a PR. optional PR review and CI auto-fix on top.',
+          stack: ['Node 22', 'TypeScript', 'Hono', 'better-sqlite3', 'Claude Code', 'GitHub App', 'MCP', 'Docker'],
+          license: 'MIT',
+          status: { label: 'inbound', kind: 'amber' },
+          repo: { label: 'github.com/georgebuilds/kalos', href: 'https://github.com/georgebuilds/kalos' },
+          launch: { label: 'preview ↗', href: 'https://georgebuilds.github.io/kalos/' },
+        },
+      };
+
+      const populateToolModal = (key) => {
+        const t = TOOLS_DATA[key];
+        if (!t) return;
+        document.getElementById('tool-modal-name').textContent = t.name;
+        document.getElementById('tool-modal-channel').textContent = t.channel;
+        document.getElementById('tool-modal-freq').textContent = t.freq;
+        const img = document.getElementById('tool-modal-img');
+        img.src = t.img;
+        img.alt = `${t.name} mascot`;
+        document.getElementById('tool-modal-portrait-label').textContent = t.portraitLabel;
+        document.getElementById('tool-modal-tagline').textContent = t.tagline;
+        // desc is trusted markup (see TOOLS_DATA comments)
+        document.getElementById('tool-modal-desc').innerHTML = t.desc;
+        document.getElementById('tool-modal-license').textContent = t.license;
+        const repo = document.getElementById('tool-modal-repo');
+        repo.textContent = t.repo.label;
+        repo.href = t.repo.href;
+        const chip = document.getElementById('tool-modal-status-chip');
+        chip.querySelector('.dot').className = 'dot ' + t.status.kind;
+        chip.querySelector('.status-label').textContent = t.status.label;
+        chip.classList.toggle('green-fg', t.status.kind === 'green');
+        chip.classList.toggle('amber-fg', t.status.kind === 'amber');
+        const stackEl = document.getElementById('tool-modal-stack');
+        stackEl.innerHTML = t.stack
+          .map((s) => `<span class="chip">${s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c])}</span>`)
+          .join('');
+        toolModalLaunch.textContent = t.launch.label;
+        toolModalLaunch.href = t.launch.href;
+      };
+
+      const openToolModal = (key) => {
+        if (toolModal.classList.contains('open')) return;
+        populateToolModal(key);
+        toolLastFocus = document.activeElement;
+        audio.open();
+        toolModal.classList.add('open');
+        toolModal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+        // pulse audio bars for ~1.8s on open then settle (codec "speaking" intro)
+        const meter = toolModal.querySelector('.audio-meter');
+        if (meter) {
+          meter.classList.add('active');
+          setTimeout(() => meter.classList.remove('active'), 1800);
+        }
+        updateInert();
+        setTimeout(() => toolModalLaunch.focus(), 80);
+      };
+      const closeToolModal = () => {
+        if (!toolModal.classList.contains('open')) return;
+        audio.close();
+        toolModal.classList.add('closing');
+        setTimeout(() => {
+          toolModal.classList.remove('open', 'closing');
+          toolModal.setAttribute('aria-hidden', 'true');
+          if (!document.querySelector('.modal.open')) {
+            document.body.classList.remove('modal-open');
+          }
+          updateInert();
+          if (toolLastFocus && toolLastFocus.focus) toolLastFocus.focus();
+        }, 200);
+      };
+
+      // wire tool cards to open the codec modal (preserve href for cmd/ctrl/middle-click)
+      document.querySelectorAll('.tool-card[data-tool]').forEach((card) => {
+        card.addEventListener('click', (e) => {
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
+          e.preventDefault();
+          openToolModal(card.dataset.tool);
+        });
+      });
+      toolModalClose.addEventListener('click', closeToolModal);
+      toolModalBackdrop.addEventListener('click', closeToolModal);
+
+      // ===== global key handler (esc + backtick) =====
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          if (toolModal.classList.contains('open')) {
+            closeToolModal();
+            return;
+          }
+          if (modal.classList.contains('open')) {
+            closeModal();
+            return;
+          }
+        }
+        // backtick opens the terminal (when not in an input/textarea, and no modal is open)
+        if (
+          e.key === '`' &&
+          !modal.classList.contains('open') &&
+          !toolModal.classList.contains('open')
+        ) {
+          const tag = (e.target && e.target.tagName) || '';
+          if (tag !== 'INPUT' && tag !== 'TEXTAREA') {
+            e.preventDefault();
+            openModal();
+          }
+        }
+      });
+
+      // ===== REPL =====
+      const out = document.getElementById('repl-out');
+      const form = document.getElementById('repl-form');
+      const promptLabel = document.getElementById('prompt-label');
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const history = [];
+      let hIdx = -1;
+
+      const print = (html, cls = 'out', opts = {}) => {
+        const div = document.createElement('div');
+        div.className = 'repl-line ' + cls + (opts.gap ? ' gap' : '') + (opts.fade ? ' fade-in' : '');
+        div.innerHTML = html;
+        out.appendChild(div);
+        out.scrollTop = out.scrollHeight;
+        return div;
+      };
+      const printRaw = (text, cls = 'out') => print(esc(text), cls);
+      const link = (href, label) =>
+        `<a href="${href}" target="_blank" rel="noopener">${esc(label || href)}</a>`;
+
+      // ===== LOGIN STATE =====
+      let mode = 'repl'; // 'repl' | 'email' | 'password' | 'submitting'
+      let pendingEmail = null;
+      let loginAttempts = 0;
+
+      const setMode = (m, opts = {}) => {
+        mode = m;
+        if (m === 'repl') {
+          promptLabel.textContent = 'george@station:~$';
+          replInput.type = 'text';
+          replInput.disabled = false;
+          replInput.value = '';
+          replInput.placeholder = '';
+          if (!opts.silent) setTimeout(() => replInput.focus(), 0);
+        } else if (m === 'email') {
+          promptLabel.textContent = 'email:';
+          replInput.type = 'text';
+          replInput.disabled = false;
+          replInput.value = '';
+          replInput.placeholder = 'you@example.com';
+          replInput.focus();
+        } else if (m === 'password') {
+          promptLabel.textContent = 'password:';
+          replInput.type = 'password';
+          replInput.disabled = false;
+          replInput.value = '';
+          replInput.placeholder = '';
+          replInput.focus();
+        } else if (m === 'submitting') {
+          promptLabel.textContent = '...';
+          replInput.type = 'text';
+          replInput.disabled = true;
+          replInput.value = '';
+        }
+      };
+
+      // ===== VALIDATION =====
+      const validateEmail = (raw) => {
+        const v = (raw || '').trim();
+        if (!v) return "validation error: 'email' is required";
+        if (v.length > 254) return `validation error: email exceeds 254 characters (RFC 5321)`;
+        if (!v.includes('@')) return `validation error: '${esc(v)}' is missing '@' separator`;
+        const [local, ...rest] = v.split('@');
+        const domain = rest.join('@');
+        if (!local) return `validation error: local part of email is empty`;
+        if (!domain) return `validation error: domain part of email is empty`;
+        if (local.length > 64) return `validation error: local part exceeds 64 characters (RFC 5321)`;
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) return `validation error: '${esc(v)}' is not a valid email address (RFC 5322)`;
+        return null;
+      };
+      const validatePassword = (raw) => {
+        const v = raw == null ? '' : raw;
+        if (v.length === 0) return "validation error: 'password' is required";
+        if (v.length < 8) return `validation error: password must be at least 8 characters (was ${v.length})`;
+        if (v.length > 72) return `validation error: password exceeds 72 bytes (bcrypt input limit)`;
+        return null;
+      };
+
+      // ===== HTTP FAILURE SIMULATION =====
+      const pickFailure = () => {
+        loginAttempts++;
+        // after 3 attempts → favor rate limiting
+        if (loginAttempts >= 3 && Math.random() < 0.7) {
+          const wait = 30 + (loginAttempts - 2) * 30;
+          return {
+            status: 429,
+            statusText: 'Too Many Requests',
+            headers: { 'retry-after': String(wait) },
+            body: { error: 'rate_limited', message: `too many attempts. try again in ${wait}s.`, retry_after: wait },
+          };
+        }
+        const r = Math.random();
+        if (r < 0.62) {
+          return {
+            status: 401,
+            statusText: 'Unauthorized',
+            headers: { 'www-authenticate': 'Bearer realm="georgebuilds"' },
+            body: { error: 'invalid_credentials', message: 'email or password is incorrect', code: 'AUTH_E0001' },
+          };
+        }
+        if (r < 0.78) {
+          return {
+            status: 403,
+            statusText: 'Forbidden',
+            headers: {},
+            body: { error: 'forbidden', message: 'this endpoint is disabled for your account', code: 'AUTH_E0042' },
+          };
+        }
+        if (r < 0.92) {
+          return {
+            status: 503,
+            statusText: 'Service Unavailable',
+            headers: { 'retry-after': '60' },
+            body: { error: 'service_unavailable', message: 'auth service is currently undergoing maintenance' },
+          };
+        }
+        return {
+          status: 500,
+          statusText: 'Internal Server Error',
+          headers: {},
+          body: { error: 'internal', message: 'an unexpected error occurred', request_id: uuid() },
+        };
+      };
+
+      const colorJSON = (obj) => {
+        const json = JSON.stringify(obj, null, 2);
+        return esc(json)
+          .replace(/&quot;([^&]+)&quot;(\s*:)/g, '<span class="k">&quot;$1&quot;</span>$2')
+          .replace(/:\s*&quot;([^&]*)&quot;/g, ': <span class="s">&quot;$1&quot;</span>')
+          .replace(/:\s*(-?\d+(?:\.\d+)?)/g, ': <span class="n">$1</span>');
+      };
+
+      const submitLogin = (email, password) => {
+        const reqId = uuid();
+        const ts = new Date().toISOString();
+        const reqBody = { email, password: '***' };
+        print(`&gt; POST https://api.georgebuilds.com/v1/auth/login HTTP/2`, 'http-header');
+        print(`&gt; content-type: application/json`, 'http-header');
+        print(`&gt; user-agent: georgebuilds/0.1`, 'http-header');
+        print(`&gt; x-request-id: ${reqId}`, 'http-header');
+        print(`&gt;`, 'http-header');
+        colorJSON(reqBody).split('\n').forEach((ln) => print(`&gt; ${ln}`, 'http-body'));
+        const spinnerLine = print(`<span class="spinner"></span>`, 'dim');
+
+        const delay = 700 + Math.random() * 800;
+        setTimeout(() => {
+          spinnerLine.remove();
+          const fail = pickFailure();
+          const statusCls =
+            fail.status >= 500 ? 'http-status-5xx' :
+            fail.status >= 400 ? 'http-status-4xx' :
+            'http-status-2xx';
+          print(`&lt; HTTP/2 ${fail.status} ${fail.statusText}`, statusCls);
+          print(`&lt; date: ${ts}`, 'http-header');
+          print(`&lt; x-request-id: ${reqId}`, 'http-header');
+          for (const [k, v] of Object.entries(fail.headers)) {
+            print(`&lt; ${k}: ${esc(v)}`, 'http-header');
+          }
+          print(`&lt; content-type: application/json`, 'http-header');
+          print('&lt;', 'http-header');
+          colorJSON(fail.body).split('\n').forEach((ln) => print(ln, 'http-body'));
+          print('', 'out');
+          print(`login failed. type <span style="color:var(--accent)">login</span> to retry.`, 'dim');
+          setMode('repl');
+        }, delay);
+      };
+
+      // ===== COMMANDS =====
+      const COMMANDS = {
+        help: {
+          desc: 'show available commands',
+          run: () => {
+            const lines = Object.entries(COMMANDS)
+              .filter(([, v]) => !v.hidden)
+              .map(([k, v]) => `  ${k.padEnd(14)} ${v.desc}`)
+              .join('\n');
+            print(`available commands:\n${lines}\n\n  ↑/↓ history · tab autocomplete · ctrl-c cancel · esc closes terminal`, 'out', { gap: true });
+          },
+        },
+        login: {
+          desc: 'authenticate with email + password',
+          run: () => {
+            print(`<span class="dim"># entering interactive login. ctrl-c to cancel.</span>`, 'dim');
+            setMode('email');
+          },
+        },
+        signin: { desc: 'alias of login', hidden: true, run: () => COMMANDS.login.run() },
+        auth: { desc: 'alias of login', hidden: true, run: () => COMMANDS.login.run() },
+        logout: {
+          desc: 'end the current session',
+          run: () => print('not authenticated. nothing to log out of.', 'dim'),
+        },
+        signup: {
+          desc: 'create a new account',
+          run: () => print('signups are not currently open. type `login` to attempt sign-in.', 'dim'),
+        },
+        whoami: {
+          desc: 'about george',
+          run: () => {
+            print(
+              `george fernandez\n` +
+                `  role     senior software engineer @ ludus\n` +
+                `  focus    product features · ai features &amp; infra\n` +
+                `  off-duty builds small tools, ships them as cargo`,
+              'out', { gap: true }
+            );
+          },
+        },
+        ls: {
+          desc: 'list tools',
+          run: () => {
+            print(
+              `drwxr-xr-x  degu     ${link('https://georgebuilds.github.io/degu/', 'georgebuilds.github.io/degu')}\n` +
+                `drwxr-xr-x  kalos    ${link('https://georgebuilds.github.io/kalos/', 'georgebuilds.github.io/kalos')}  <span class="dim">[inbound]</span>`,
+              'out', { gap: true }
+            );
+          },
+        },
+        tools: { desc: 'alias of ls', run: () => COMMANDS.ls.run(), hidden: true },
+        cat: {
+          desc: 'cat &lt;degu|kalos&gt;',
+          run: (args) => {
+            const t = (args[0] || '').toLowerCase();
+            if (t === 'degu') {
+              print(
+                `# degu\n` +
+                  `a media browser that lives with your media. drop it on a usb or external\n` +
+                  `ssd; plug into another computer and your tags, loops, and thumbnails\n` +
+                  `come along. nothing in the cloud.\n\n` +
+                  `→ ${link('https://georgebuilds.github.io/degu/', 'launch')}`,
+                'out', { gap: true }
+              );
+            } else if (t === 'kalos') {
+              print(
+                `# kalos  <span class="dim">[inbound]</span>\n` +
+                  `a self-hosted coding agent. dispatch a task to kalos with claude or\n` +
+                  `openclaw; it clones, codes, and opens the pr. bring your own llm key.\n` +
+                  `runs anywhere bun does.\n\n` +
+                  `→ ${link('https://georgebuilds.github.io/kalos/', 'launch')}`,
+                'out', { gap: true }
+              );
+            } else if (!t) {
+              print('usage: cat &lt;degu|kalos&gt;', 'err');
+            } else {
+              print(`cat: ${esc(t)}: no such file in tools`, 'err');
+            }
+          },
+        },
+        open: {
+          desc: 'open &lt;degu|kalos|github|bluesky|persona|ludus&gt;',
+          run: (args) => {
+            const t = (args[0] || '').toLowerCase();
+            const map = {
+              degu: 'https://georgebuilds.github.io/degu/',
+              kalos: 'https://georgebuilds.github.io/kalos/',
+              github: 'https://github.com/georgebuilds',
+              bluesky: 'https://bsky.app/profile/georgebuilds.com',
+              persona: 'https://playpersona.app',
+              ludus: 'https://ludus.com',
+            };
+            if (!t) return print('usage: open &lt;target&gt;', 'err');
+            if (!map[t]) return print(`open: ${esc(t)}: unknown target`, 'err');
+            print(`opening ${esc(t)} → ${link(map[t])}`);
+            window.open(map[t], '_blank', 'noopener');
+          },
+        },
+        launch: { desc: 'alias of open', run: (a) => COMMANDS.open.run(a), hidden: true },
+        links: {
+          desc: 'show contact channels',
+          run: () => {
+            print(
+              `[01] github    ${link('https://github.com/georgebuilds', '@georgebuilds')}\n` +
+                `[02] bluesky   ${link('https://bsky.app/profile/georgebuilds.com', '@georgebuilds.com')}\n` +
+                `[03] persona   ${link('https://playpersona.app', 'playpersona.app')}`,
+              'out', { gap: true }
+            );
+          },
+        },
+        articles: {
+          desc: 'list published articles',
+          run: () => print('no articles published yet. transmitter cold.', 'dim'),
+        },
+        comms: { desc: 'alias of links', run: () => COMMANDS.links.run(), hidden: true },
+        date: { desc: 'station time', run: () => printRaw(new Date().toUTCString()) },
+        uptime: {
+          desc: 'station uptime',
+          run: () => {
+            const since = new Date('2024-01-01T00:00:00Z').getTime();
+            const days = Math.floor((Date.now() - since) / 86_400_000);
+            printRaw(`up ${days} days · load avg: 0.42 0.38 0.31 · 1 user`);
+          },
+        },
+        coords: {
+          desc: 'galactic coordinates',
+          run: () => printRaw('sector 7g · sol-3 · 36.154°n 95.993°w · tulsa, ok · drift: nominal'),
+        },
+        clear: { desc: 'clear the screen', run: () => { out.innerHTML = ''; } },
+        sudo: {
+          desc: 'sudo &lt;cmd&gt;',
+          run: () => print('this is a single-user station. you already are root.', 'dim'),
+        },
+        exit: { desc: 'close the terminal', run: () => closeModal(), hidden: true },
+        hello: { desc: 'say hi', run: () => print('hi.', 'out'), hidden: true },
+        ahoy: { desc: 'salute', run: () => print('ahoy. mind the cargo.', 'dim'), hidden: true },
+      };
+
+      const exec = (raw) => {
+        const line = raw.trim();
+        print(`<span class="prompt">george@station:~$</span> ${esc(line)}`, 'in');
+        if (!line) return;
+        const [name, ...args] = line.split(/\s+/);
+        const cmd = COMMANDS[name.toLowerCase()];
+        if (!cmd) return print(`command not found: ${esc(name)}. try \`help\`.`, 'err');
+        cmd.run(args);
+      };
+
+      // ===== BOOT SEQUENCE (first modal open) =====
+      const startBootSequence = () => {
+        const lines = [
+          { t: 60,  html: '<span class="ok">[ok]</span> mem check 64k · ok',                cls: 'boot-line' },
+          { t: 180, html: '<span class="ok">[ok]</span> mounting /tools · 2 entries',       cls: 'boot-line' },
+          { t: 320, html: '<span class="ok">[ok]</span> uplink established · sector 7g',    cls: 'boot-line' },
+          { t: 460, html: `<span class="ok">[ok]</span> session opened · ${sessionId}`,     cls: 'boot-line' },
+          { t: 620, html: 'georgebuilds station · build 0.1 · ready',                       cls: 'dim' },
+          { t: 720, html: 'type <span style="color:var(--accent)">help</span> for commands · <span style="color:var(--accent)">login</span> to authenticate · <span style="color:var(--accent)">esc</span> to close', cls: 'out' },
+        ];
+        if (reduced) {
+          lines.forEach((l) => print(l.html, l.cls));
+        } else {
+          lines.forEach((l) => setTimeout(() => print(l.html, l.cls, { fade: true }), l.t));
+        }
+      };
+
+      // ===== INPUT HANDLERS =====
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const v = replInput.value;
+
+        if (mode === 'email') {
+          print(`<span class="prompt">email:</span> ${esc(v)}`, 'in');
+          const err = validateEmail(v);
+          if (err) {
+            print(err, 'err');
+            print('try `login` again to retry.', 'dim');
+            setMode('repl');
+            return;
+          }
+          pendingEmail = v.trim();
+          setMode('password');
+          return;
+        }
+
+        if (mode === 'password') {
+          const masked = '●'.repeat(Math.min(v.length, 32));
+          print(`<span class="prompt">password:</span> ${masked}`, 'in');
+          const err = validatePassword(v);
+          if (err) {
+            print(err, 'err');
+            print('try `login` again to retry.', 'dim');
+            setMode('repl');
+            return;
+          }
+          setMode('submitting');
+          submitLogin(pendingEmail, v);
+          return;
+        }
+
+        // default repl
+        if (v.trim()) {
+          history.unshift(v);
+          if (history.length > 50) history.pop();
+        }
+        hIdx = -1;
+        replInput.value = '';
+        exec(v);
+      });
+
+      replInput.addEventListener('keydown', (e) => {
+        // ctrl-c cancels mid-flow
+        if ((e.key === 'c' || e.key === 'C') && (e.ctrlKey || e.metaKey)) {
+          if (mode !== 'repl' && mode !== 'submitting') {
+            e.preventDefault();
+            print('^C', 'dim');
+            setMode('repl');
+            return;
+          }
+        }
+
+        if (mode !== 'repl') return; // history & tab only in repl mode
+
+        if (e.key === 'ArrowUp') {
+          if (hIdx + 1 < history.length) {
+            hIdx++;
+            replInput.value = history[hIdx];
+            setTimeout(() => replInput.setSelectionRange(replInput.value.length, replInput.value.length), 0);
+          }
+          e.preventDefault();
+        } else if (e.key === 'ArrowDown') {
+          if (hIdx > 0) {
+            hIdx--;
+            replInput.value = history[hIdx];
+          } else {
+            hIdx = -1;
+            replInput.value = '';
+          }
+          e.preventDefault();
+        } else if (e.key === 'Tab') {
+          e.preventDefault();
+          const v = replInput.value;
+          const names = Object.keys(COMMANDS).filter((c) => !COMMANDS[c].hidden);
+          const matches = names.filter((n) => n.startsWith(v.toLowerCase()));
+          if (matches.length === 1) replInput.value = matches[0] + ' ';
+          else if (matches.length > 1) print(matches.join('  '), 'dim');
+        }
+      });
+
+      // click anywhere in the modal panel body re-focuses input
+      document.querySelector('.modal-panel .panel-body').addEventListener('click', (e) => {
+        if (e.target.tagName !== 'A' && e.target.tagName !== 'BUTTON') replInput.focus();
+      });
+    </script>
+  </body>
+</html>
