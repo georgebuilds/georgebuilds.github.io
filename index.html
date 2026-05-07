@@ -14,7 +14,7 @@
     <!-- defense-in-depth content security policy -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://cloudflare-eth.com https://eth.llamarpc.com; frame-ancestors 'none'; base-uri 'self'; form-action 'none'"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://eth.llamarpc.com https://ethereum-rpc.publicnode.com https://cloudflare-eth.com; frame-ancestors 'none'; base-uri 'self'; form-action 'none'"
     />
     <meta
       name="keywords"
@@ -1613,7 +1613,13 @@
         const val = document.getElementById('eth-block-val');
         if (!val) return;
         const fmt = new Intl.NumberFormat('en-US');
-        const endpoints = ['https://cloudflare-eth.com', 'https://eth.llamarpc.com'];
+        // llamarpc first — cloudflare-eth currently returns -32046 "Cannot fulfill request"
+        // for many requests as of May 2026. publicnode is a third independent fallback.
+        const endpoints = [
+          'https://eth.llamarpc.com',
+          'https://ethereum-rpc.publicnode.com',
+          'https://cloudflare-eth.com',
+        ];
         let last = null;
         let pollHandle = null;
         const poll = async () => {
