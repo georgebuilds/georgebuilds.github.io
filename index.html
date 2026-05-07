@@ -14,7 +14,7 @@
     <!-- defense-in-depth content security policy -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://eth.llamarpc.com https://ethereum-rpc.publicnode.com https://cloudflare-eth.com; frame-ancestors 'none'; base-uri 'self'; form-action 'none'"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://analytics.georgebuilds.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://analytics.georgebuilds.com; connect-src 'self' https://eth.llamarpc.com https://ethereum-rpc.publicnode.com https://rpc.ankr.com https://analytics.georgebuilds.com; frame-ancestors 'none'; base-uri 'self'; form-action 'none'"
     />
     <meta
       name="keywords"
@@ -584,8 +584,6 @@
           grid-template-columns: 1fr 1fr;
           align-items: start;
         }
-        /* readout spans both columns, anchored beneath the cards */
-        .tools .tools-readout { grid-column: 1 / -1; }
       }
       .tool-card {
         position: relative;
@@ -682,21 +680,6 @@
       .tool-card.streaming.t1 { animation-delay: 420ms; }
       .tool-card.streaming.t2 { animation-delay: 560ms; }
       @keyframes card-stream { to { opacity: 1; transform: none; } }
-
-      .tools-readout {
-        margin-top: auto;
-        padding: 8px 10px;
-        border-top: 1px dashed var(--frame);
-        font-size: 10px;
-        color: var(--soft);
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        display: flex;
-        flex-direction: column;
-        gap: 3px;
-      }
-      .tools-readout .row { display: flex; justify-content: space-between; gap: 10px; }
-      .tools-readout .row .v { color: var(--muted); }
 
       /* =============================================
          ACCESS NODE (terminal launcher)
@@ -1402,9 +1385,6 @@
               </div>
             </a>
 
-            <div class="tools-readout" aria-hidden="true">
-              <div class="row"><span>licenses</span><span class="v">degu agpl-3.0 · kalos mit</span></div>
-            </div>
           </div>
         </section>
 
@@ -1554,7 +1534,53 @@
       </div>
     </div>
 
+    <!-- Matomo · analytics.georgebuilds.com · site id 6 -->
     <script>
+      (function () {
+        var _paq = (window._paq = window._paq || []);
+        // tracker methods like setCustomDimension must be queued before trackPageView
+        _paq.push(['enableLinkTracking']);
+        _paq.push(['trackPageView']);
+        var u = 'https://analytics.georgebuilds.com/';
+        _paq.push(['setTrackerUrl', u + 'matomo.php']);
+        _paq.push(['setSiteId', '6']);
+        var d = document,
+          g = d.createElement('script'),
+          s = d.getElementsByTagName('script')[0];
+        g.async = true;
+        g.src = u + 'matomo.js';
+        s.parentNode.insertBefore(g, s);
+      })();
+    </script>
+
+    <script>
+      // ===== ANALYTICS HELPER =====
+      // Thin facade over Matomo's _paq queue. Use throughout the site instead of
+      // pushing _paq directly — gives us one place to evolve the tracking surface.
+      // pageView() is for "virtual" navigations (modal-as-page, hash routing).
+      // event() is for clicks/actions; (category, action, name?, value?).
+      // Geo tracking is automatic from the visitor IP, server-side.
+      const track = (() => {
+        const q = () => (window._paq = window._paq || []);
+        return {
+          pageView: ({ url, title } = {}) => {
+            const _q = q();
+            if (url) _q.push(['setCustomUrl', url]);
+            if (title) _q.push(['setDocumentTitle', title]);
+            _q.push(['trackPageView']);
+          },
+          event: (category, action, name, value) => {
+            const args = ['trackEvent', category, action];
+            if (name !== undefined && name !== null) args.push(String(name));
+            if (value !== undefined && value !== null) args.push(value);
+            q().push(args);
+          },
+          link: (url, type) => {
+            q().push(['trackLink', url, type || 'link']);
+          },
+        };
+      })();
+
       // ===== STARS =====
       (() => {
         const sky = document.querySelector('.stars');
@@ -1613,12 +1639,14 @@
         const val = document.getElementById('eth-block-val');
         if (!val) return;
         const fmt = new Intl.NumberFormat('en-US');
-        // llamarpc first — cloudflare-eth currently returns -32046 "Cannot fulfill request"
-        // for many requests as of May 2026. publicnode is a third independent fallback.
+        // Ordered by reliability (May 2026). llamarpc currently most consistent for
+        // anonymous browser fetches; publicnode (Allnodes) and Ankr are independent
+        // fallbacks. cloudflare-eth was dropped — it's been returning -32046
+        // "Cannot fulfill request" intermittently for eth_blockNumber.
         const endpoints = [
           'https://eth.llamarpc.com',
           'https://ethereum-rpc.publicnode.com',
-          'https://cloudflare-eth.com',
+          'https://rpc.ankr.com/eth',
         ];
         let last = null;
         let pollHandle = null;
@@ -1764,6 +1792,7 @@
         modal.setAttribute('aria-hidden', 'false');
         document.body.classList.add('modal-open');
         updateInert();
+        track.event('terminal', 'open');
         // focus the input after the bloom; small delay reads more naturally
         setTimeout(() => replInput.focus(), 60);
         if (!modalOpenedOnce) {
@@ -1877,7 +1906,9 @@
           meter.classList.add('active');
           setTimeout(() => meter.classList.remove('active'), 1800);
         }
+        toolModal.setAttribute('data-tool-key', key);
         updateInert();
+        track.event('tool', 'open', key);
         setTimeout(() => toolModalLaunch.focus(), 80);
       };
       const closeToolModal = () => {
@@ -1905,6 +1936,11 @@
       });
       toolModalClose.addEventListener('click', closeToolModal);
       toolModalBackdrop.addEventListener('click', closeToolModal);
+      // explicit launch tracking (more reliable than enableLinkTracking for target=_blank)
+      toolModalLaunch.addEventListener('click', () => {
+        const key = toolModal.getAttribute('data-tool-key');
+        track.event('tool', 'launch', key || 'unknown');
+      });
 
       // ===== global key handler (esc + backtick) =====
       document.addEventListener('keydown', (e) => {
@@ -2244,7 +2280,11 @@
         if (!line) return;
         const [name, ...args] = line.split(/\s+/);
         const cmd = COMMANDS[name.toLowerCase()];
-        if (!cmd) return print(`command not found: ${esc(name)}. try \`help\`.`, 'err');
+        if (!cmd) {
+          track.event('terminal', 'command-unknown', name.toLowerCase());
+          return print(`command not found: ${esc(name)}. try \`help\`.`, 'err');
+        }
+        track.event('terminal', 'command', name.toLowerCase());
         cmd.run(args);
       };
 
