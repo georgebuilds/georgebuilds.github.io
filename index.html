@@ -113,7 +113,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Geist:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -425,12 +425,13 @@
       }
 
       /* top row — full size, opacity settle */
-      .panel.p1, .panel.p2 {
+      .panel.p1, .panel.p2, .panel.persona.p3 {
         opacity: 0;
-        animation: panel-fade 320ms ease-out forwards;
+        animation: panel-fade 360ms ease-out forwards;
       }
       .panel.p1 { animation-delay: 80ms; }
       .panel.p2 { animation-delay: 200ms; }
+      .panel.persona.p3 { animation-delay: 340ms; }
       @keyframes panel-fade { to { opacity: 1; } }
 
       /* bottom row — bloom from center, sequential */
@@ -439,8 +440,8 @@
         transform: scaleY(0.005);
         animation: panel-bloom 440ms cubic-bezier(0.2, 0.85, 0.3, 1) forwards;
       }
-      .panel.boot.p3 { animation-delay: 560ms; }
-      .panel.boot.p4 { animation-delay: 1080ms; }
+      .panel.boot.p4 { animation-delay: 560ms; }
+      .panel.boot.p5 { animation-delay: 1080ms; }
       @keyframes panel-bloom {
         0% {
           transform: scaleY(0.005);
@@ -469,12 +470,12 @@
         opacity: 0;
         animation: content-fade 240ms ease-out forwards;
       }
-      .panel.boot.p3 > .bracket,
-      .panel.boot.p3 > .panel-header,
-      .panel.boot.p3 > .panel-body { animation-delay: 1020ms; }
       .panel.boot.p4 > .bracket,
       .panel.boot.p4 > .panel-header,
-      .panel.boot.p4 > .panel-body { animation-delay: 1540ms; }
+      .panel.boot.p4 > .panel-body { animation-delay: 1020ms; }
+      .panel.boot.p5 > .bracket,
+      .panel.boot.p5 > .panel-header,
+      .panel.boot.p5 > .panel-body { animation-delay: 1540ms; }
       @keyframes content-fade { to { opacity: 1; } }
 
       .panel-header {
@@ -682,6 +683,124 @@
       @keyframes card-stream { to { opacity: 1; transform: none; } }
 
       /* =============================================
+         PERSONA — "porthole" panel
+         A side project with its own brand (Hearth: paper-warm, peach accent,
+         Geist sans, lamp glow). The cockpit chrome holds it; what's inside is
+         a window into another world.
+         ============================================= */
+      .panel.persona .panel-meta .dot.peach {
+        background: #E8956F;
+        box-shadow: 0 0 6px rgba(232, 149, 111, 0.55);
+      }
+      .panel.persona .panel-body.persona-body {
+        padding: 0;
+        gap: 0;
+      }
+      .persona-porthole {
+        position: relative;
+        padding: clamp(22px, 3.2vh, 36px) clamp(24px, 3.6vw, 44px);
+        font-family: 'Geist', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+        color: #F2EBE0;
+        /* Hearth surfaces (dark mode) — paper-dark with a warm lamp peeking from the upper-right */
+        background:
+          radial-gradient(ellipse 80% 70% at 100% 0%, rgba(232, 149, 111, 0.22), transparent 62%),
+          radial-gradient(ellipse 50% 80% at 0% 100%, rgba(232, 149, 111, 0.06), transparent 60%),
+          linear-gradient(180deg, #221E1A 0%, #1B1815 100%);
+        box-shadow:
+          inset 0 0 0 1px rgba(232, 149, 111, 0.16),
+          inset 0 0 80px rgba(232, 149, 111, 0.04);
+        overflow: hidden;
+        min-height: 240px;
+        flex: 1;
+      }
+      /* faint film grain over the porthole — Hearth atmosphere */
+      .persona-porthole::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.018) 1px, transparent 1.5px),
+          radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.018) 1px, transparent 1.5px);
+        background-size: 3px 3px, 5px 5px;
+        opacity: 0.6;
+        mix-blend-mode: screen;
+      }
+      .persona-content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .persona-wordmark {
+        font-family: 'Geist', system-ui, -apple-system, sans-serif;
+        font-size: clamp(34px, 5.2vh, 50px);
+        font-weight: 700;
+        letter-spacing: -0.028em;
+        color: #F2EBE0;
+        line-height: 1;
+        margin: 0;
+      }
+      .persona-tagline {
+        font-family: 'Geist', system-ui, sans-serif;
+        font-size: clamp(15px, 2vh, 18px);
+        font-weight: 500;
+        color: #E8956F;
+        letter-spacing: -0.005em;
+        margin: 8px 0 16px;
+      }
+      .persona-blurb {
+        font-family: 'Geist', system-ui, sans-serif;
+        font-size: clamp(13.5px, 1.7vh, 15px);
+        font-weight: 400;
+        line-height: 1.65;
+        color: #B8AFA1;
+        max-width: 60ch;
+        margin: 0 0 20px;
+      }
+      .persona-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 11px 20px 10px;
+        border-radius: 8px;
+        background: linear-gradient(180deg, #E8956F 0%, #C77750 100%);
+        color: #1F1A14;
+        text-decoration: none;
+        font-family: 'Geist', system-ui, sans-serif;
+        font-weight: 600;
+        font-size: 13.5px;
+        letter-spacing: 0.01em;
+        align-self: flex-start;
+        border: 1px solid rgba(232, 149, 111, 0.55);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.18),
+          0 4px 18px rgba(232, 149, 111, 0.18);
+        transition: transform 0.12s ease, box-shadow 0.18s ease, filter 0.18s ease;
+      }
+      .persona-cta:hover {
+        transform: translateY(-1px);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.22),
+          0 6px 24px rgba(232, 149, 111, 0.28);
+        filter: brightness(1.05);
+      }
+      .persona-cta:active { transform: translateY(0); }
+      .persona-cta .arrow { transition: transform 0.18s ease; }
+      .persona-cta:hover .arrow { transform: translate(2px, -2px); }
+      .persona-meta {
+        margin: 22px 0 0;
+        padding-top: 12px;
+        border-top: 1px dashed rgba(232, 149, 111, 0.22);
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 9.5px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #6F665B;
+      }
+
+      /* =============================================
          ACCESS NODE (terminal launcher)
          ============================================= */
       .access { min-height: 0; }
@@ -757,6 +876,28 @@
         letter-spacing: 0.14em;
         color: var(--soft);
       }
+      /* clickable article row (replaces the ghost when an article is published) */
+      .article-row.article-link {
+        text-decoration: none;
+        color: var(--bone);
+        cursor: pointer;
+        transition: background 0.15s, border-color 0.15s, color 0.15s;
+      }
+      .article-row.article-link:hover {
+        background: rgba(212, 162, 76, 0.06);
+        border-color: var(--accent-line);
+      }
+      .article-row.article-link .title {
+        color: var(--bone);
+        font-size: 12px;
+        letter-spacing: -0.005em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .article-row.article-link:hover .title { color: var(--accent); }
+      .article-row.article-link .when { color: var(--muted); }
+
       .articles-empty {
         margin-top: auto;
         text-align: center;
@@ -1169,6 +1310,110 @@
         .codec-chips { justify-content: center; }
         .codec-name { font-size: 26px; }
       }
+
+      /* =============================================
+         ARTICLE MODAL — long-form reading surface
+         ============================================= */
+      .modal--article .modal-stage {
+        width: min(820px, 100%);
+        height: auto;
+        max-height: calc(100vh - 64px);
+      }
+      .modal--article .modal-panel {
+        height: auto;
+        max-height: calc(100vh - 64px);
+        overflow: hidden;
+      }
+      .article-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 16px 22px 14px;
+        border-bottom: 1px solid var(--frame);
+        background: rgba(0, 0, 0, 0.28);
+        position: relative;
+        z-index: 3;
+      }
+      .article-header .article-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        min-width: 0;
+      }
+      .article-header .article-eyebrow {
+        font-size: 9.5px;
+        letter-spacing: 0.22em;
+        color: var(--accent);
+        text-transform: uppercase;
+      }
+      .article-header h1.article-title {
+        font-size: clamp(20px, 2.6vh, 26px);
+        font-weight: 700;
+        letter-spacing: -0.015em;
+        color: var(--bone);
+        line-height: 1.2;
+        margin: 0;
+      }
+      .article-header .article-byline {
+        font-size: 10.5px;
+        letter-spacing: 0.14em;
+        color: var(--soft);
+        text-transform: uppercase;
+      }
+
+      .article-body {
+        overflow-y: auto;
+        padding: 18px clamp(20px, 4vw, 36px) 26px;
+        font-size: clamp(13.5px, 1.7vh, 15px);
+        line-height: 1.7;
+        color: var(--bone);
+        position: relative;
+        z-index: 3;
+        scrollbar-width: thin;
+        scrollbar-color: var(--frame-strong) transparent;
+      }
+      .article-body::-webkit-scrollbar { width: 6px; }
+      .article-body::-webkit-scrollbar-thumb { background: var(--frame-strong); border-radius: 3px; }
+      .article-body p { margin: 0 0 1em; max-width: 64ch; }
+      .article-body p:last-child { margin-bottom: 0; }
+      .article-body h2 {
+        font-size: clamp(15px, 2vh, 17px);
+        font-weight: 700;
+        letter-spacing: -0.005em;
+        color: var(--accent);
+        margin: 1.6em 0 0.6em;
+      }
+      .article-body strong { color: var(--bone); font-weight: 700; }
+      .article-body em { color: var(--muted); font-style: normal; }
+      .article-body a {
+        color: var(--accent);
+        text-decoration: none;
+        border-bottom: 1px dotted var(--accent-line);
+        transition: border-color 0.15s;
+      }
+      .article-body a:hover { border-bottom-color: var(--accent); }
+      .article-body ul {
+        margin: 0.5em 0 1em;
+        padding-left: 1.4em;
+        max-width: 64ch;
+      }
+      .article-body li { margin: 0.3em 0; }
+      .article-body hr {
+        border: 0;
+        border-top: 1px dashed var(--frame);
+        margin: 2em 0 1.4em;
+      }
+      .article-body .article-outro {
+        font-size: 12.5px;
+        color: var(--muted);
+        font-style: italic;
+      }
+
+      @media (max-width: 600px) {
+        .article-header { padding: 14px 16px 12px; }
+        .article-body { font-size: 14px; padding: 16px 18px 22px; }
+      }
       .repl-out {
         flex: 1;
         overflow-y: auto;
@@ -1255,13 +1500,14 @@
       @media (min-width: 1600px) {
         .grid {
           grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-          grid-template-rows: minmax(0, auto) minmax(0, 1fr);
+          grid-template-rows: minmax(0, auto) minmax(0, auto) minmax(0, 1fr);
           grid-auto-rows: auto;
         }
         .whoami { grid-column: 1; grid-row: 1; }
         .tools { grid-column: 2; grid-row: 1; }
-        .access { grid-column: 1; grid-row: 2; }
-        .articles { grid-column: 2; grid-row: 2; }
+        .persona { grid-column: 1 / -1; grid-row: 2; }
+        .access { grid-column: 1; grid-row: 3; }
+        .articles { grid-column: 2; grid-row: 3; }
       }
       @media (max-width: 620px) {
         .modal { padding: 0; }
@@ -1388,8 +1634,32 @@
           </div>
         </section>
 
+        <!-- persona — "porthole" panel: side project with its own brand (Hearth) -->
+        <section class="panel persona p3" aria-labelledby="lbl-persona">
+          <span class="bracket tl"></span><span class="bracket tr"></span>
+          <span class="bracket bl"></span><span class="bracket br"></span>
+          <div class="panel-header">
+            <h2 class="panel-label" id="lbl-persona">also building</h2>
+            <span class="panel-meta"><span class="dot peach"></span>private beta · own brand</span>
+          </div>
+          <div class="panel-body persona-body">
+            <div class="persona-porthole">
+              <div class="persona-glow" aria-hidden="true"></div>
+              <div class="persona-content">
+                <span class="persona-wordmark">Persona</span>
+                <p class="persona-tagline">Characters who remember.</p>
+                <p class="persona-blurb">a local-first ai roleplaying app — build a city, populate it with a cast that has personalities, relationships, and persistent memory across every chat, group room, and scene.</p>
+                <a class="persona-cta" href="https://playpersona.app" target="_blank" rel="noopener">
+                  step inside <span class="arrow">↗</span>
+                </a>
+                <p class="persona-meta">side project · own world · playpersona.app</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <!-- access node (terminal launcher) -->
-        <section class="panel access boot p3" aria-labelledby="lbl-access">
+        <section class="panel access boot p4" aria-labelledby="lbl-access">
           <span class="bracket tl"></span><span class="bracket tr"></span>
           <span class="bracket bl"></span><span class="bracket br"></span>
           <div class="panel-header">
@@ -1411,19 +1681,19 @@
         </section>
 
         <!-- articles -->
-        <section class="panel articles boot p4" aria-labelledby="lbl-articles">
+        <section class="panel articles boot p5" aria-labelledby="lbl-articles">
           <span class="bracket tl"></span><span class="bracket tr"></span>
           <span class="bracket bl"></span><span class="bracket br"></span>
           <div class="panel-header">
             <h2 class="panel-label" id="lbl-articles">articles</h2>
-            <span class="panel-meta">0 entries</span>
+            <span class="panel-meta">1 entry</span>
           </div>
           <div class="panel-body">
-            <div class="article-row r1" aria-hidden="true">
+            <a class="article-row r1 article-link" href="#article/persona-what-i-learned" data-article="persona-what-i-learned">
               <span class="id">[001]</span>
-              <span class="ghost w1"></span>
-              <span class="when">— · —</span>
-            </div>
+              <span class="title">what i learned making persona</span>
+              <span class="when">2026·05·07</span>
+            </a>
             <div class="article-row r2" aria-hidden="true">
               <span class="id">[002]</span>
               <span class="ghost w2"></span>
@@ -1435,7 +1705,7 @@
               <span class="when">— · —</span>
             </div>
             <div class="articles-empty">
-              transmitter cold · <span class="accent">first dispatch inbound</span>
+              1 dispatch on file · <span class="accent">more inbound</span>
             </div>
           </div>
         </section>
@@ -1455,6 +1725,99 @@
         </div>
       </footer>
     </div>
+
+    <!-- article modal (long-form reading surface) -->
+    <div class="modal modal--article" id="article-modal" aria-hidden="true" inert>
+      <div class="modal-backdrop" id="article-modal-backdrop"></div>
+      <div class="modal-stage">
+        <section class="panel modal-panel article-panel" role="dialog" aria-modal="true" aria-labelledby="article-modal-title">
+          <span class="bracket tl"></span><span class="bracket tr"></span>
+          <span class="bracket bl"></span><span class="bracket br"></span>
+          <div class="article-header">
+            <div class="article-meta">
+              <span class="article-eyebrow"><span id="article-modal-eyebrow">article 001</span></span>
+              <h1 class="article-title" id="article-modal-title">—</h1>
+              <span class="article-byline" id="article-modal-byline">—</span>
+            </div>
+            <button type="button" class="modal-close" id="article-modal-close" aria-label="close article">[ esc ]</button>
+          </div>
+          <div class="article-body" id="article-modal-body" tabindex="0"></div>
+        </section>
+      </div>
+    </div>
+
+    <!-- inline article content (cloned into the modal on demand) -->
+    <template id="article-persona-what-i-learned">
+      <p>I've been a web developer for most of my career. Laravel, mostly. CRUD apps with reasonable polish, the kind of work where the problem shapes are familiar and you can move on instinct. I'm a computer nerd in a broader sense — I appreciate the whole machine — but I'd never built desktop software. I knew about it from a distance the way you know about a country you've never visited.</p>
+      <p>This is a piece about what happened when I decided to visit.</p>
+
+      <h2>The toy app</h2>
+      <p>The origin of Persona is embarrassingly small. I built a little thing one evening that let you plug in an OpenRouter key and pit two language models against each other, masking their identities, watching them try to reach a result. I had a stupid amount of fun with it. I'd give one model a personality, the other a different one, sit back, and let them argue.</p>
+      <p>Then I started thinking: what if there were more than two characters?</p>
+      <p>What if I were one of them?</p>
+      <p>It's not a long walk from there to where Persona is now. A local-first desktop app where you build a city, populate it with characters who have personalities and relationships and memories, and just live in that world for a while. They send you photos. They remember the conversation you had three weeks ago. They argue with each other in group chats and update how they feel about each other based on what happened.</p>
+      <p>The feature I'm proudest of, almost as a thesis statement for the whole project, is something I call <strong>Global Narrate</strong>. You open a modal and type something. It can be anything. A news story. A weather event. The death of a local politician. An LLM reads your input, decides which of the characters in your city would be affected and how, and implants the appropriate memories. It also decides which character-to-character relationships have shifted. Before it commits anything, it shows you a confirmation screen. Here are the characters who'll be affected, here are the memories that will be planted, uncheck anything you don't want recorded. Then it writes.</p>
+      <p>That's the kind of feature where you can feel that the underlying systems are doing real work. The memory architecture isn't a chat history with a fancy hat on. The relationship model isn't a sentiment score in a column.</p>
+      <p>But getting there meant entering several domains I knew nothing about. So.</p>
+
+      <h2>Choosing Rust, and what that cost me</h2>
+      <p>I picked Rust deliberately. Persona is a privacy-focused app. Your conversations live encrypted on your machine, your generated images stay local, your "city backups" are sealed bundles you control. I wanted something that ran close to the metal, with strong type guarantees, where I could close off whole categories of attack vector by virtue of the language. I'd had Tauri and Wails on my radar as Electron alternatives, and I didn't need Chromium specifically, so a smaller binary that didn't bundle a full browser was attractive. Tauri won because Rust won.</p>
+      <p>The honest version of the story is that Rust has been wonderful and the compiler has been my nemesis. My CI builds Persona for three platforms in twenty minutes with aggressive caching, thirty without. I have a Go/Wails side project that builds for the same three targets in three and a half minutes flat, no cache. The iteration cycle in Rust is <em>slow</em>. You need to be more confident before you ship. For a security-focused app I think that's actually the right tradeoff. The language enforces a kind of patience. But the day-to-day cost is real.</p>
+      <p>If I were starting over I might pick Go/Wails. I'm not starting over. And there are real things I'd lose: the encryption surface area, the type-system discipline, the smaller binary, the easier story for shipping a desktop app I plan to keep running for years. The regret is genuine but it's the kind of regret you live with, not the kind that wakes you up at night.</p>
+
+      <h2>The release pipeline, or: things nobody warned me about</h2>
+      <p>Here's the thing nobody tells you when you decide to ship a desktop app. You will spend more time on <strong>release engineering</strong> than you will on the actual hard problems of your product.</p>
+      <p>I thought the technically gnarly stuff would be the image generation pipeline, the memory architecture, the scene-state tracking. There was plenty of that, and I'll get to it. But I lost <em>days</em>, and a non-zero amount of money in burned CI minutes, on getting builds to ship correctly.</p>
+      <p>The two scars I'll show you:</p>
+      <p><strong>Windows code-signing.</strong> Took forever to integrate. The signing tool only worked if I compressed the binary using one specific zip format. It otherwise didn't care about the format at all, so pre-signing builds looked totally fine and I had no signal anything was wrong until the signing step failed in a way that made it look like the binary itself was broken. I tracked it down by elimination, not by reading documentation, because the documentation didn't mention it.</p>
+      <p><strong>The blank Mac window.</strong> For a stretch of about a week, my macOS builds shipped without a UI. Just a blank Tauri window when you launched the app. Linux and Windows builds were fine. I burned probably ten release attempts and a tank of patience figuring out what changed in the macOS bundling step that was silently dropping the frontend assets. I don't even remember the fix anymore. What I remember is the <em>whack-a-mole</em> feeling. Every time I thought I had a clean release, a different thing would break on a different platform, and CI wasn't telling me anything useful until the install actually ran.</p>
+      <p>What came out of all of this is a <code>release.yml</code> file that is, by a wide margin, the most heavily inline-commented file in the repo. Every gotcha I learned along the way is recorded right there in the YAML, addressed not to me but to any future agent that might end up modifying the pipeline. I don't want anyone, human or otherwise, to step on the same rake twice.</p>
+      <p>That file is my scar tissue. It's also, in a weird way, one of the things I'm proudest of. Release engineering is a whole discipline I had no respect for as a web developer because I'd never had to do it. Now I do.</p>
+
+      <h2>The actual hard technical problems</h2>
+      <p>OK. The product side. Two problems that genuinely stretched me.</p>
+      <p><strong>Per-character memory across overlapping scenes.</strong> Persona's memories are stored per character, not per chat. This is, I think, what differentiates it from most LLM roleplay systems. A character carries one memory across every conversation they're in, including group chats where they're sitting silently and not responding. The benefit is huge. Characters feel continuous. The cost is a category of bug I didn't anticipate. If I'm chatting with Character A in a baseball park, and then I open a group chat with A and B and explicitly set the scene to my office and ask where they are, Character A might still think they're in the baseball park. Location memory bleeds across chats.</p>
+      <p>Solving this took me deep into a genuinely arcane corner of academic LLM research: turn-taking and scene-state architecture for multi-agent roleplay. There's published work on this; I just had to find it. Persona 1.1 will ship with an implementation of <a href="https://arxiv.org/abs/2601.11007">AdaMARP</a>, a turn-taking and shared-environment architecture from a 2026 paper that handles exactly this kind of cross-scene state coordination. I would not have found that paper if I hadn't first accepted that this was a <em>real research domain</em> and not a thing I should be solving from first principles.</p>
+      <p><strong>Face consistency across multi-character images.</strong> When a character sends you a selfie, you want them to look like themselves, across that photo and every photo before and after it. Persona handles this with a per-character LoRA training step. If you've generated three reference photos you like, you can spend a few bucks training a LoRA that makes every subsequent photo of that character look identical. That works beautifully for solo shots.</p>
+      <p>It falls apart in group photos. Even when both characters in the frame have their own LoRA weights trained, you get a face that looks like a blend of the two. The kind of uncanny near-recognition where you know something is wrong but can't say what. The fix is a multi-pass pipeline: a reasoning-enabled language model acts as a "scene director" first, generating bounding boxes for where each character will appear, and then the image is generated in masked passes, one character at a time, each conditioned on its own LoRA. This is the leading industry practice right now and I'm still refining the implementation, but it works.</p>
+      <p>What both of these problems had in common, and this is the meta-point, is that they each required me to step back, do a proper research run (usually with Gemini in deep-research mode, which I find to be the most capable of the accessible research agents), bring the findings into my Claude project files, and then move from research to design to implementation as discrete phases.</p>
+      <p>That's not how I'd built software before. CRUD apps reward "just figure it out as you go." This kind of work doesn't.</p>
+
+      <h2>The thing I'm actually proudest of</h2>
+      <p>Honestly? The feel.</p>
+      <p>I did multiple full UX redesign passes on Persona, every one of them with expert UX guidance pulled from research rather than from my own taste. I am not a designer. I have functional taste but not original taste. What I had to do, and this was harder for me than the Rust learning curve, was admit that UX is its own domain with its own research and its own expertise, and that my intuition was a worse guide to it than a structured study.</p>
+      <p>The end product feels <em>crispy</em>. The scrolling, of all things, took multiple attempts to get right. A chat app where you enter a conversation and you're already scrolled to the bottom, except sometimes not all the way, except when there's a new message, except when... it's a deceptively complex piece of behavior and I have new respect for every chat app I've ever used.</p>
+      <p>The typing indicators feel right. The collapsible sidebar feels right. The transitions feel right. There's a lot of complex AI machinery underneath but on the surface it just feels like a beautiful chat app. That's the whole point.</p>
+
+      <h2>What I had to unlearn</h2>
+      <p>I want to be precise about this part because it's where the most useful insight is, and I think a lot of senior engineers are going to face the same thing in the next couple of years.</p>
+      <p>Roughly 85% of Persona is agent-written. I am, to this day, a person who has personally typed exactly one "hello world" in Rust. I love writing Vue and I love writing system prompts; almost everything else is dispatched.</p>
+      <p>The instinct I had to suppress, more than any other, was: <em>I can fix this faster than I can write the prompt.</em></p>
+      <p>That's true for any individual change. It's wrong as a strategy. The prompt unblocks me; the fix happens in parallel. Even for one-line fixes, I'll dispatch to one of several Claude Code sessions running in parallel rather than context-switch myself into the file. The throughput gain is enormous. Senior-engineer instinct optimizes for local efficiency — <em>I'll just do it</em> — and that instinct is exactly wrong when you have a team of agents waiting for direction.</p>
+      <p>Calling it a team isn't a metaphor I'm using lightly. My actual mental model of how I work now:</p>
+      <ul>
+        <li><strong>Gemini Deep Research</strong> is my research director. When a problem feels like it has a real domain behind it, that's where I go first.</li>
+        <li><strong>Claude (in chat)</strong> is my engineering manager. We strategize, design, and produce dispatch prompts together.</li>
+        <li><strong>Multiple parallel Claude Code sessions</strong> are my engineers, executing on dispatched prompts headlessly via shell.</li>
+        <li><strong>A specialized Claude project</strong> acts as a security expert that does a full pass on almost every patch.</li>
+        <li><strong>Occasionally, a fresh Claude conversation</strong> acts as a UX consultant conducting a study.</li>
+      </ul>
+      <p>This setup gives me near-expertise in any domain I need it. Not real expertise — I'd never claim that — but functional access to it. Enough to ship.</p>
+
+      <h2>The paradox</h2>
+      <p>Engineers have a stereotype of big egos. I think the stereotype is half-right and half-wrong. The ego comes from a real place: from repeatedly facing a problem you understand nothing about and, with enough time and effort, eventually fully grokking it. That's a deeply earned confidence. It's also a trap.</p>
+      <p>The trap is that it makes you reluctant to say "wait, this is a whole domain. There's research for this. I shouldn't be solving it from instinct." The same confidence that lets you grok new things prevents you from outsourcing the grokking when the grokking is the wrong move.</p>
+      <p>A long career humbles you out of that. Or it should. I think the engineers who'll thrive in the next few years are the ones who can hold both at once: the confidence that says <em>I can learn this</em> and the humility that says <em>I shouldn't have to from scratch.</em></p>
+
+      <h2>What this work feels like now</h2>
+      <p>I think the tired adage that engineering will start to look more like management is true, and I think it's a good thing.</p>
+      <p>A bit of humility goes a long way going in. Everyone you "hire" in this setup is genuinely better than you at the specific thing you're hiring them for. The reasoning model that acts as your scene director knows things about spatial reasoning under structured-output constraints that you don't, and shouldn't have to. The research agent has read more recent papers in any narrow domain than you ever will. Knowing when to ask, rather than dictate, is the skill.</p>
+      <p>I don't think "engineer" really fits as a job title anymore for this kind of work. Understanding systems architecture is still required (you can't orchestrate what you can't reason about) but the day-to-day shape is closer to agent-wrangling than to coding. The future senior IC won't boast about expertise in a language. They'll demonstrate that they know what stack to use for each task, because they understand the tradeoffs, not the syntax.</p>
+      <p>I'm not upset that the bar for novices is lower now. I'm not threatened by sixteen-year-olds shipping apps. The reason I'm not is that the <em>ceiling</em>, for engineers who know what they're doing, is higher than it's ever been. I built a Tauri/Rust desktop app with a multi-model image pipeline and an academic-paper-derived memory system in my spare time, having never written a desktop app or a line of production Rust before. Five years ago that takes a team. Now it takes one person who knows how to manage a team of agents.</p>
+      <p>That's the new craft. I think it's a good one.</p>
+      <hr />
+      <p class="article-outro">Persona is at <a href="https://playpersona.app">playpersona.app</a> if you want to see what fell out of all of this.</p>
+    </template>
 
     <!-- tool modal (codec call) -->
     <div class="modal modal--tool" id="tool-modal" aria-hidden="true" inert>
@@ -1821,6 +2184,138 @@
       modalClose.addEventListener('click', closeModal);
       modalBackdrop.addEventListener('click', closeModal);
 
+      // ===== ARTICLE MODAL (long-form reading + hash routing for Matomo) =====
+      const articleModal = document.getElementById('article-modal');
+      const articleModalBackdrop = document.getElementById('article-modal-backdrop');
+      const articleModalClose = document.getElementById('article-modal-close');
+      const articleModalTitle = document.getElementById('article-modal-title');
+      const articleModalEyebrow = document.getElementById('article-modal-eyebrow');
+      const articleModalByline = document.getElementById('article-modal-byline');
+      const articleModalBody = document.getElementById('article-modal-body');
+      let articleLastFocus = null;
+
+      // Each registered article maps a slug → metadata + the <template> element holding
+      // the body markup. Adding a new article = drop a <template id="article-<slug>"> in
+      // the markup and add an entry here; everything else (panel row, hash routing,
+      // tracking) is wired up generically.
+      const ARTICLES = {
+        'persona-what-i-learned': {
+          number: '001',
+          title: 'What I Learned Making Persona',
+          dateISO: '2026-05-07',
+          dateDisplay: 'may 7, 2026',
+          readMin: 8,
+          templateId: 'article-persona-what-i-learned',
+        },
+      };
+
+      // Article opens fire two analytics signals: a virtual page view (so the article
+      // shows up in Matomo's Pages report with its own URL/title) AND a typed event
+      // (so it shows up in the Events report under the "article" category).
+      const trackArticleView = (slug, meta) => {
+        const url = location.origin + location.pathname + '#article/' + slug;
+        track.pageView({ url, title: meta.title + ' — georgebuilds' });
+        track.event('article', 'open', slug);
+      };
+
+      const populateArticleModal = (slug) => {
+        const meta = ARTICLES[slug];
+        if (!meta) return false;
+        const tpl = document.getElementById(meta.templateId);
+        if (!tpl || !('content' in tpl)) return false;
+        articleModalEyebrow.textContent = 'article ' + meta.number;
+        articleModalTitle.textContent = meta.title;
+        articleModalByline.textContent =
+          'george fernandez · ' + meta.dateDisplay + ' · ~' + meta.readMin + ' min read';
+        articleModalBody.replaceChildren(tpl.content.cloneNode(true));
+        articleModalBody.scrollTop = 0;
+        return true;
+      };
+
+      // Set the URL fragment without polluting history. Some embed/sandbox environments
+      // strip the History API; fall back to direct location.hash assignment which is
+      // universally available. The hashchange listener guards against re-entry.
+      const setHash = (target) => {
+        if (location.hash === target) return;
+        try {
+          if (history && typeof history.replaceState === 'function') {
+            history.replaceState(null, '', target || location.pathname + location.search);
+            return;
+          }
+        } catch (_) {}
+        if (target) location.hash = target;
+        else if (location.hash) location.hash = '';
+      };
+
+      const openArticleModal = (slug, opts = {}) => {
+        if (articleModal.classList.contains('open')) return;
+        if (!populateArticleModal(slug)) return;
+        articleLastFocus = document.activeElement;
+        audio.open();
+        articleModal.classList.add('open');
+        articleModal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+        updateInert();
+        // sync URL hash so the open article is shareable + Matomo-trackable
+        if (!opts.fromHash) setHash('#article/' + slug);
+        trackArticleView(slug, ARTICLES[slug]);
+        setTimeout(() => articleModalBody.focus(), 80);
+      };
+
+      const closeArticleModal = (opts = {}) => {
+        if (!articleModal.classList.contains('open')) return;
+        audio.close();
+        articleModal.classList.add('closing');
+        if (!opts.fromHash && location.hash.startsWith('#article/')) {
+          setHash('');
+        }
+        setTimeout(() => {
+          articleModal.classList.remove('open', 'closing');
+          articleModal.setAttribute('aria-hidden', 'true');
+          if (!document.querySelector('.modal.open')) {
+            document.body.classList.remove('modal-open');
+          }
+          updateInert();
+          if (articleLastFocus && articleLastFocus.focus) articleLastFocus.focus();
+        }, 200);
+      };
+
+      // wire article rows
+      document.querySelectorAll('.article-link[data-article]').forEach((row) => {
+        row.addEventListener('click', (e) => {
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
+          e.preventDefault();
+          openArticleModal(row.dataset.article);
+        });
+      });
+      articleModalClose.addEventListener('click', () => closeArticleModal());
+      articleModalBackdrop.addEventListener('click', () => closeArticleModal());
+
+      // ===== PERSONA CTA tracking =====
+      const personaCta = document.querySelector('.persona-cta');
+      if (personaCta) {
+        personaCta.addEventListener('click', () => {
+          track.event('persona', 'step-inside');
+        });
+      }
+
+      // hash routing: deep-link `#article/<slug>` opens the modal; clearing the hash
+      // closes it. Supports back/forward navigation.
+      const syncFromHash = () => {
+        const m = location.hash.match(/^#article\/([\w-]+)$/);
+        if (m && ARTICLES[m[1]]) {
+          openArticleModal(m[1], { fromHash: true });
+        } else if (articleModal.classList.contains('open')) {
+          closeArticleModal({ fromHash: true });
+        }
+      };
+      window.addEventListener('hashchange', syncFromHash);
+      // run once on load so direct links / refreshes work
+      if (location.hash.startsWith('#article/')) {
+        // small delay so the boot animation lands first; opens after the panel bloom
+        setTimeout(syncFromHash, 1500);
+      }
+
       // ===== TOOL MODAL (codec call) =====
       const toolModal = document.getElementById('tool-modal');
       const toolModalBackdrop = document.getElementById('tool-modal-backdrop');
@@ -1945,6 +2440,10 @@
       // ===== global key handler (esc + backtick) =====
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
+          if (articleModal.classList.contains('open')) {
+            closeArticleModal();
+            return;
+          }
           if (toolModal.classList.contains('open')) {
             closeToolModal();
             return;
@@ -1958,7 +2457,8 @@
         if (
           e.key === '`' &&
           !modal.classList.contains('open') &&
-          !toolModal.classList.contains('open')
+          !toolModal.classList.contains('open') &&
+          !articleModal.classList.contains('open')
         ) {
           const tag = (e.target && e.target.tagName) || '';
           if (tag !== 'INPUT' && tag !== 'TEXTAREA') {
