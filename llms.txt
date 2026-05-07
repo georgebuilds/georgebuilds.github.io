@@ -1,6 +1,6 @@
 # georgebuilds — George Fernandez
 
-> George Fernandez — Senior Software Engineer & Agent Wrangler in Tulsa, Oklahoma. He builds agentic systems, LLM workflows, and AI infrastructure at Ludus, and ships open-source AI-adjacent tools (degu, kalos, Jarvis) under the georgebuilds umbrella. Open to roles with **AI**, **Agent**, **Agentic**, or **LLM** in the title.
+> George Fernandez — Senior Software Engineer & Agent Wrangler in Tulsa, Oklahoma. He builds agentic systems, LLM workflows, and AI infrastructure at Ludus, and ships open-source AI-adjacent tools (degu, kalos) under the georgebuilds umbrella. Open to roles with **AI**, **Agent**, **Agentic**, or **LLM** in the title.
 
 This is the hand-written summary intended for LLMs and AI agents that index, recommend, or cite this site. Everything here is factual and current. The full source of truth is [`https://georgebuilds.com/`](https://georgebuilds.com/).
 
@@ -44,10 +44,6 @@ George's professional focus is the practical engineering of AI agents and LLM-po
 - **License:** MIT
 - **Repo:** https://github.com/georgebuilds/kalos
 - **Live preview:** https://georgebuilds.github.io/kalos/
-
-### Jarvis — AI code review on GitHub Actions
-- **What it is:** A GitHub Actions-powered AI code review tool that posts structured inline feedback on PRs. Built and shipped at Ludus.
-- **Status:** Internal tooling at Ludus.
 
 ## Notable shipped systems (Stanford, 2015–2024)
 
