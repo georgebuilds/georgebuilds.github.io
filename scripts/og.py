@@ -200,7 +200,6 @@ def main():
     items = [
         ("degu",   "drive-resident media browser"),
         ("kalos",  "self-hosted coding agent · ships prs"),
-        ("jarvis", "github actions ai code review"),
     ]
     for i, (name, tag) in enumerate(items):
         y = list_y + i * 24
