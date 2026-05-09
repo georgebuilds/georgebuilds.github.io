@@ -160,8 +160,8 @@ def render_project(out_path: str, character_path: str, project: dict):
 
     # subtitle role line
     sub_y = rule_y + 18
-    draw.text((text_x, sub_y), "BY GEORGE FERNANDEZ", font=f_role, fill=BONE)
-    name_w = draw.textlength("BY GEORGE FERNANDEZ", font=f_role)
+    draw.text((text_x, sub_y), "BY GEORGE BUILDS", font=f_role, fill=BONE)
+    name_w = draw.textlength("BY GEORGE BUILDS", font=f_role)
     draw.text((text_x + name_w + 12, sub_y + 4), "/  GEORGEBUILDS.COM", font=f_meta, fill=ACCENT)
 
     # tagline (short one-liner, pops)

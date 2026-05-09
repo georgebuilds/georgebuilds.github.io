@@ -184,8 +184,8 @@ def main():
 
     # role / subtitle line
     role_y = rule_y + 18
-    draw.text((text_x, role_y), "GEORGE FERNANDEZ", font=f_role, fill=BONE)
-    george_w = draw.textlength("GEORGE FERNANDEZ", font=f_role)
+    draw.text((text_x, role_y), "GEORGE BUILDS", font=f_role, fill=BONE)
+    george_w = draw.textlength("GEORGE BUILDS", font=f_role)
     draw.text((text_x + george_w + 14, role_y + 4), "/  AGENT WRANGLER", font=f_small, fill=AMBER)
 
     # primary tagline — three short lines, no overlap with right-side illustrations
