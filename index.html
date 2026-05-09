@@ -300,6 +300,42 @@
       .link:hover { color: var(--bone); background: var(--frame); }
       .link:hover::before { color: var(--accent); }
 
+      /* language toggle — segmented "[ en · es ]" pill in the header nav.
+         active locale gets accent + bone weight; inactive is muted but clickable. */
+      .lang-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        margin-left: 6px;
+        padding: 3px 6px 2px;
+        border: 1px solid var(--frame);
+        border-radius: 4px;
+        font-size: 10.5px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--soft);
+      }
+      .lang-bracket { color: var(--soft); }
+      .lang-sep { color: var(--soft); }
+      .lang-btn {
+        background: transparent;
+        border: 0;
+        padding: 0 2px;
+        color: var(--muted);
+        font: inherit;
+        font-size: inherit;
+        letter-spacing: inherit;
+        text-transform: inherit;
+        cursor: pointer;
+        transition: color 0.12s;
+      }
+      .lang-btn:hover { color: var(--bone); }
+      .lang-btn[aria-pressed="true"] {
+        color: var(--accent);
+        text-shadow: 0 0 6px rgba(212, 162, 76, 0.4);
+        cursor: default;
+      }
+
       /* =============================================
          BUTTONS
          ============================================= */
@@ -1569,11 +1605,18 @@
       <header class="top">
         <h1 class="brand">
           <span>georgebuilds<span class="glyph">.</span></span>
-          <span class="brand-tag"><span class="dot"></span>station online</span>
+          <span class="brand-tag"><span class="dot"></span><span data-i18n="brand.tag">station online</span></span>
         </h1>
         <nav class="links" aria-label="primary">
           <a class="link" href="https://github.com/georgebuilds" rel="me noopener">github</a>
           <a class="link" href="https://bsky.app/profile/georgebuilds.com" rel="me noopener">bluesky</a>
+          <div class="lang-toggle" role="group" aria-label="language">
+            <span class="lang-bracket" aria-hidden="true">[</span>
+            <button type="button" class="lang-btn" data-lang="en" aria-pressed="true">en</button>
+            <span class="lang-sep" aria-hidden="true">·</span>
+            <button type="button" class="lang-btn" data-lang="es" aria-pressed="false">es</button>
+            <span class="lang-bracket" aria-hidden="true">]</span>
+          </div>
         </nav>
       </header>
 
@@ -1592,12 +1635,12 @@
               <span id="typed-cmd"></span><span class="caret" id="caret"></span>
             </p>
             <div class="bio">
-              <p class="stream s1">
+              <p class="stream s1" data-i18n-html="whoami.s1">
                 i'm <strong>george fernandez</strong> — senior software engineer at
                 <a href="https://ludus.com" target="_blank" rel="noopener">ludus</a>, building product
                 features &amp; the infrastructure underneath them.
               </p>
-              <p class="stream s2">
+              <p class="stream s2" data-i18n-html="whoami.s2">
                 off the clock i make small tools for myself and ship them. the agentic-coding era turned the habit into an addiction. the cargo bay's overflowing.
                 <em>this is the dock.</em>
               </p>
@@ -1610,19 +1653,19 @@
           <span class="bracket tl"></span><span class="bracket tr"></span>
           <span class="bracket bl"></span><span class="bracket br"></span>
           <div class="panel-header">
-            <h2 class="panel-label" id="lbl-tools">tools</h2>
-            <span class="panel-meta"><span class="dot amber"></span>2 items</span>
+            <h2 class="panel-label" id="lbl-tools" data-i18n="panel.tools.label">tools</h2>
+            <span class="panel-meta"><span class="dot amber"></span><span data-i18n="panel.tools.meta">2 items</span></span>
           </div>
           <div class="panel-body">
             <a class="tool-card streaming t1" href="https://georgebuilds.github.io/degu/" target="_blank" rel="noopener" data-tool="degu" aria-haspopup="dialog">
               <img class="tool-icon" src="assets/degu.png" alt="degu mascot" loading="lazy" />
               <div class="tool-main">
                 <div class="tool-row">
-                  <span class="tool-status status-deployed"><span class="dot"></span>deployed</span>
+                  <span class="tool-status status-deployed"><span class="dot"></span><span data-i18n="tool.status.deployed">deployed</span></span>
                   <h3 class="tool-name">degu</h3>
-                  <span class="btn primary tool-launch">open ↗</span>
+                  <span class="btn primary tool-launch" data-i18n="tool.launch.open">open ↗</span>
                 </div>
-                <p class="tool-tag">a media browser that lives next to your media — tags &amp; thumbnails travel with the drive.</p>
+                <p class="tool-tag" data-i18n-html="tool.degu.tag">a media browser that lives next to your media — tags &amp; thumbnails travel with the drive.</p>
               </div>
             </a>
 
@@ -1630,11 +1673,11 @@
               <img class="tool-icon" src="assets/kalos.png" alt="kalos mascot" loading="lazy" />
               <div class="tool-main">
                 <div class="tool-row">
-                  <span class="tool-status status-inbound"><span class="dot"></span>inbound</span>
+                  <span class="tool-status status-inbound"><span class="dot"></span><span data-i18n="tool.status.inbound">inbound</span></span>
                   <h3 class="tool-name">kalos</h3>
-                  <span class="btn tool-launch">open ↗</span>
+                  <span class="btn tool-launch" data-i18n="tool.launch.open">open ↗</span>
                 </div>
-                <p class="tool-tag">a self-hosted coding agent — dispatch a task, it opens the pr. now with <span class="anthropic">Claude Code</span>.</p>
+                <p class="tool-tag" data-i18n-html="tool.kalos.tag">a self-hosted coding agent — dispatch a task, it opens the pr. now with <span class="anthropic">Claude Code</span>.</p>
               </div>
             </a>
 
@@ -1646,20 +1689,20 @@
           <span class="bracket tl"></span><span class="bracket tr"></span>
           <span class="bracket bl"></span><span class="bracket br"></span>
           <div class="panel-header">
-            <h2 class="panel-label" id="lbl-persona">also building</h2>
-            <span class="panel-meta"><span class="dot peach"></span>private beta · own brand</span>
+            <h2 class="panel-label" id="lbl-persona" data-i18n="panel.persona.label">also building</h2>
+            <span class="panel-meta"><span class="dot peach"></span><span data-i18n="panel.persona.meta">private beta · own brand</span></span>
           </div>
           <div class="panel-body persona-body">
             <div class="persona-porthole">
               <div class="persona-glow" aria-hidden="true"></div>
               <div class="persona-content">
                 <span class="persona-wordmark">Persona</span>
-                <p class="persona-tagline">Characters who remember.</p>
-                <p class="persona-blurb">a local-first ai roleplaying app — build a city, populate it with a cast that has personalities, relationships, and persistent memory across every chat, group room, and scene.</p>
+                <p class="persona-tagline" data-i18n="persona.tagline">Characters who remember.</p>
+                <p class="persona-blurb" data-i18n="persona.blurb">a local-first ai roleplaying app — build a city, populate it with a cast that has personalities, relationships, and persistent memory across every chat, group room, and scene.</p>
                 <a class="persona-cta" href="https://playpersona.app" target="_blank" rel="noopener">
-                  step inside <span class="arrow">↗</span>
+                  <span data-i18n="persona.cta">step inside</span> <span class="arrow">↗</span>
                 </a>
-                <p class="persona-meta">side project · own world · playpersona.app</p>
+                <p class="persona-meta" data-i18n="persona.meta">side project · own world · playpersona.app</p>
               </div>
             </div>
           </div>
@@ -1670,19 +1713,19 @@
           <span class="bracket tl"></span><span class="bracket tr"></span>
           <span class="bracket bl"></span><span class="bracket br"></span>
           <div class="panel-header">
-            <h2 class="panel-label" id="lbl-access">access node</h2>
-            <span class="panel-meta"><span class="dot green"></span>tty0 · idle</span>
+            <h2 class="panel-label" id="lbl-access" data-i18n="panel.access.label">access node</h2>
+            <span class="panel-meta"><span class="dot green"></span><span data-i18n="panel.access.meta">tty0 · idle</span></span>
           </div>
           <div class="panel-body">
             <div class="access-meta" aria-hidden="true">
-              <div class="row"><span>session</span><span class="v">offline</span></div>
-              <div class="row"><span>commands</span><span class="v">17</span></div>
-              <div class="row"><span>auth</span><span class="v">login →</span></div>
-              <div class="row"><span>shortcut</span><span class="v">backtick</span></div>
+              <div class="row"><span data-i18n="access.row.session">session</span><span class="v" data-i18n="access.row.session.val">offline</span></div>
+              <div class="row"><span data-i18n="access.row.commands">commands</span><span class="v">17</span></div>
+              <div class="row"><span data-i18n="access.row.auth">auth</span><span class="v" data-i18n="access.row.auth.val">login →</span></div>
+              <div class="row"><span data-i18n="access.row.shortcut">shortcut</span><span class="v" data-i18n="access.row.shortcut.val">backtick</span></div>
             </div>
             <div class="access-cta">
-              <button type="button" class="btn primary lg" id="open-terminal">open terminal ↗</button>
-              <span class="hint">or press <kbd>`</kbd></span>
+              <button type="button" class="btn primary lg" id="open-terminal" data-i18n="access.cta">open terminal ↗</button>
+              <span class="hint"><span data-i18n="access.hint.before">or press</span> <kbd>`</kbd></span>
             </div>
           </div>
         </section>
@@ -1692,8 +1735,8 @@
           <span class="bracket tl"></span><span class="bracket tr"></span>
           <span class="bracket bl"></span><span class="bracket br"></span>
           <div class="panel-header">
-            <h2 class="panel-label" id="lbl-articles">articles</h2>
-            <span class="panel-meta">1 entry</span>
+            <h2 class="panel-label" id="lbl-articles" data-i18n="panel.articles.label">articles</h2>
+            <span class="panel-meta" data-i18n="panel.articles.meta">1 entry</span>
           </div>
           <div class="panel-body">
             <a class="article-row r1 article-link" href="#article/persona-what-i-learned" data-article="persona-what-i-learned">
@@ -1712,7 +1755,7 @@
               <span class="when">— · —</span>
             </div>
             <div class="articles-empty">
-              1 dispatch on file · <span class="accent">more inbound</span>
+              <span data-i18n="articles.empty.before">1 dispatch on file</span> · <span class="accent" data-i18n="articles.empty.after">more inbound</span>
             </div>
           </div>
         </section>
@@ -1720,9 +1763,9 @@
 
       <footer class="status">
         <div class="status-group">
-          <span class="status-item"><span class="led"></span>signal</span>
-          <span class="status-item">station: <span class="status-val">georgebuilds.com</span></span>
-          <span class="status-item">crew: <span class="status-val">1</span></span>
+          <span class="status-item"><span class="led"></span><span data-i18n="footer.signal">signal</span></span>
+          <span class="status-item"><span data-i18n="footer.station">station</span>: <span class="status-val">georgebuilds.com</span></span>
+          <span class="status-item"><span data-i18n="footer.crew">crew</span>: <span class="status-val">1</span></span>
         </div>
         <div class="status-group">
           <span class="status-item">stn_time: <span class="status-val" id="station-time">—</span></span>
@@ -1834,8 +1877,8 @@
           <span class="bracket tl"></span><span class="bracket tr"></span>
           <span class="bracket bl"></span><span class="bracket br"></span>
           <div class="codec-header">
-            <span class="codec-status"><span class="led red"></span>incoming transmission</span>
-            <span class="codec-freq">freq <span id="tool-modal-freq">140.85</span> · ch-<span id="tool-modal-channel">--</span></span>
+            <span class="codec-status"><span class="led red"></span><span data-i18n="codec.incoming">incoming transmission</span></span>
+            <span class="codec-freq"><span data-i18n="codec.freq">freq</span> <span id="tool-modal-freq">140.85</span> · ch-<span id="tool-modal-channel">--</span></span>
             <button type="button" class="modal-close" id="tool-modal-close" aria-label="close transmission">[ esc ]</button>
           </div>
           <div class="codec-body">
@@ -1856,12 +1899,12 @@
               <p class="codec-tagline" id="tool-modal-tagline">—</p>
               <p class="codec-desc" id="tool-modal-desc">—</p>
               <div class="codec-stack">
-                <h3>stack</h3>
+                <h3 data-i18n="codec.stack">stack</h3>
                 <div class="stack-chips" id="tool-modal-stack"></div>
               </div>
               <div class="codec-meta">
-                <span class="meta-pair"><span class="meta-label">license</span><span id="tool-modal-license" class="meta-value">—</span></span>
-                <span class="meta-pair"><span class="meta-label">repo</span><a id="tool-modal-repo" href="#" target="_blank" rel="noopener" class="meta-value meta-link">—</a></span>
+                <span class="meta-pair"><span class="meta-label" data-i18n="codec.license">license</span><span id="tool-modal-license" class="meta-value">—</span></span>
+                <span class="meta-pair"><span class="meta-label" data-i18n="codec.repo">repo</span><a id="tool-modal-repo" href="#" target="_blank" rel="noopener" class="meta-value meta-link">—</a></span>
               </div>
             </div>
           </div>
@@ -1880,9 +1923,9 @@
           <span class="bracket tl"></span><span class="bracket tr"></span>
           <span class="bracket bl"></span><span class="bracket br"></span>
           <div class="panel-header">
-            <h2 class="panel-label" id="modal-label">terminal</h2>
+            <h2 class="panel-label" id="modal-label" data-i18n="terminal.label">terminal</h2>
             <span class="panel-meta">
-              <span>session: <span id="session-id">—</span></span>
+              <span><span data-i18n="terminal.session">session</span>: <span id="session-id">—</span></span>
               <button type="button" class="modal-close" id="modal-close" aria-label="close terminal">[ esc ]</button>
             </span>
           </div>
@@ -1903,6 +1946,204 @@
         </section>
       </div>
     </div>
+
+    <!-- ===== I18N =====
+         Two-locale (en/es) text swap. English is the source of truth in markup
+         (SEO + no-JS fallback); Spanish overlays via this script. Detection:
+         localStorage > navigator.language (es* → es) > en. Translatable elements
+         carry data-i18n="key" (textContent) or data-i18n-html="key" (innerHTML;
+         only static authored strings — never user input). Other scripts read
+         window.i18n.t() for dynamic strings (tool modal, article byline, etc.). -->
+    <script>
+      const i18n = (() => {
+        const STORE = 'lang';
+        const dict = {
+          en: {
+            'brand.tag': 'station online',
+            'whoami.s1':
+              "i'm <strong>george fernandez</strong> — senior software engineer at " +
+              '<a href="https://ludus.com" target="_blank" rel="noopener">ludus</a>, building product ' +
+              'features &amp; the infrastructure underneath them.',
+            'whoami.s2':
+              "off the clock i make small tools for myself and ship them. the agentic-coding era turned the habit into an addiction. the cargo bay's overflowing. " +
+              '<em>this is the dock.</em>',
+            'panel.tools.label': 'tools',
+            'panel.tools.meta': '2 items',
+            'tool.status.deployed': 'deployed',
+            'tool.status.inbound': 'inbound',
+            'tool.launch.open': 'open ↗',
+            'tool.degu.tag':
+              'a media browser that lives next to your media — tags &amp; thumbnails travel with the drive.',
+            'tool.kalos.tag':
+              'a self-hosted coding agent — dispatch a task, it opens the pr. now with <span class="anthropic">Claude Code</span>.',
+            'tool.degu.tagline': 'a media browser that travels with your media.',
+            'tool.degu.desc':
+              'browse, search, tag, preview, A–B-loop, trim, and rename media files. local-first; tags and the SQLite db live next to your media so the whole thing travels as one unit on a drive.',
+            'tool.kalos.tagline': 'a self-hosted coding agent.',
+            'tool.kalos.desc':
+              'POST a task; kalos clones the repo, runs <span class="anthropic">Claude Code</span> headless, commits, pushes, and opens a PR. optional PR review and CI auto-fix on top.',
+            'tool.modal.launch': 'launch ↗',
+            'tool.modal.preview': 'preview ↗',
+            'panel.persona.label': 'also building',
+            'panel.persona.meta': 'private beta · own brand',
+            'persona.tagline': 'Characters who remember.',
+            'persona.blurb':
+              'a local-first ai roleplaying app — build a city, populate it with a cast that has personalities, relationships, and persistent memory across every chat, group room, and scene.',
+            'persona.cta': 'step inside',
+            'persona.meta': 'side project · own world · playpersona.app',
+            'panel.access.label': 'access node',
+            'panel.access.meta': 'tty0 · idle',
+            'access.row.session': 'session',
+            'access.row.session.val': 'offline',
+            'access.row.commands': 'commands',
+            'access.row.auth': 'auth',
+            'access.row.auth.val': 'login →',
+            'access.row.shortcut': 'shortcut',
+            'access.row.shortcut.val': 'backtick',
+            'access.cta': 'open terminal ↗',
+            'access.hint.before': 'or press',
+            'panel.articles.label': 'articles',
+            'panel.articles.meta': '1 entry',
+            'articles.empty.before': '1 dispatch on file',
+            'articles.empty.after': 'more inbound',
+            'footer.signal': 'signal',
+            'footer.station': 'station',
+            'footer.crew': 'crew',
+            'codec.incoming': 'incoming transmission',
+            'codec.freq': 'freq',
+            'codec.stack': 'stack',
+            'codec.license': 'license',
+            'codec.repo': 'repo',
+            'terminal.label': 'terminal',
+            'terminal.session': 'session',
+            'article.eyebrow.prefix': 'article',
+            'article.byline.minRead': 'min read',
+          },
+          es: {
+            'brand.tag': 'estación en línea',
+            'whoami.s1':
+              'soy <strong>george fernandez</strong> — ingeniero de software sénior en ' +
+              '<a href="https://ludus.com" target="_blank" rel="noopener">ludus</a>, construyendo features ' +
+              'de producto y la infraestructura debajo.',
+            'whoami.s2':
+              'fuera de horario hago pequeñas herramientas para mí y las publico. la era del agentic-coding convirtió el hábito en adicción. la bodega de carga rebosa. ' +
+              '<em>este es el muelle.</em>',
+            'panel.tools.label': 'herramientas',
+            'panel.tools.meta': '2 elementos',
+            'tool.status.deployed': 'desplegado',
+            'tool.status.inbound': 'en camino',
+            'tool.launch.open': 'abrir ↗',
+            'tool.degu.tag':
+              'un navegador de medios que vive junto a tus archivos — etiquetas y miniaturas viajan con el disco.',
+            'tool.kalos.tag':
+              'un agente de código auto-hospedado — envía una tarea y abre la pr. ahora con <span class="anthropic">Claude Code</span>.',
+            'tool.degu.tagline': 'un navegador de medios que viaja con tus archivos.',
+            'tool.degu.desc':
+              'explora, busca, etiqueta, previsualiza, hace loops A–B, recorta y renombra archivos de medios. local-first; las etiquetas y la base SQLite viven junto a tus medios, así que todo viaja como una sola unidad en un disco.',
+            'tool.kalos.tagline': 'un agente de código auto-hospedado.',
+            'tool.kalos.desc':
+              'envía una tarea por POST; kalos clona el repo, ejecuta <span class="anthropic">Claude Code</span> headless, hace commit, push y abre un PR. opcionalmente revisa el PR y arregla CI automáticamente.',
+            'tool.modal.launch': 'iniciar ↗',
+            'tool.modal.preview': 'vista previa ↗',
+            'panel.persona.label': 'también construyendo',
+            'panel.persona.meta': 'beta privada · marca propia',
+            'persona.tagline': 'Personajes que recuerdan.',
+            'persona.blurb':
+              'una app de rol con ia local-first — construye una ciudad, puéblala con un elenco con personalidades, relaciones y memoria persistente en cada chat, sala grupal y escena.',
+            'persona.cta': 'pasa adentro',
+            'persona.meta': 'proyecto paralelo · mundo propio · playpersona.app',
+            'panel.access.label': 'nodo de acceso',
+            'panel.access.meta': 'tty0 · inactivo',
+            'access.row.session': 'sesión',
+            'access.row.session.val': 'desconectado',
+            'access.row.commands': 'comandos',
+            'access.row.auth': 'auth',
+            'access.row.auth.val': 'iniciar sesión →',
+            'access.row.shortcut': 'atajo',
+            'access.row.shortcut.val': 'backtick',
+            'access.cta': 'abrir terminal ↗',
+            'access.hint.before': 'o pulsa',
+            'panel.articles.label': 'artículos',
+            'panel.articles.meta': '1 entrada',
+            'articles.empty.before': '1 transmisión archivada',
+            'articles.empty.after': 'más en camino',
+            'footer.signal': 'señal',
+            'footer.station': 'estación',
+            'footer.crew': 'tripulación',
+            'codec.incoming': 'transmisión entrante',
+            'codec.freq': 'frec',
+            'codec.stack': 'stack',
+            'codec.license': 'licencia',
+            'codec.repo': 'repo',
+            'terminal.label': 'terminal',
+            'terminal.session': 'sesión',
+            'article.eyebrow.prefix': 'artículo',
+            'article.byline.minRead': 'min de lectura',
+          },
+        };
+
+        const detect = () => {
+          try {
+            const saved = localStorage.getItem(STORE);
+            if (saved === 'en' || saved === 'es') return saved;
+          } catch (_) {}
+          const nav = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+          return nav.startsWith('es') ? 'es' : 'en';
+        };
+
+        let locale = detect();
+        const listeners = new Set();
+
+        const t = (key) => {
+          const table = dict[locale] || dict.en;
+          return table[key] != null ? table[key] : (dict.en[key] != null ? dict.en[key] : key);
+        };
+
+        const apply = () => {
+          document.documentElement.lang = locale;
+          document.querySelectorAll('[data-i18n]').forEach((el) => {
+            el.textContent = t(el.dataset.i18n);
+          });
+          document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+            el.innerHTML = t(el.dataset.i18nHtml);
+          });
+          document.querySelectorAll('.lang-btn').forEach((btn) => {
+            const active = btn.dataset.lang === locale;
+            btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+          });
+          listeners.forEach((fn) => { try { fn(locale); } catch (_) {} });
+        };
+
+        const set = (next) => {
+          if (next !== 'en' && next !== 'es') return;
+          if (next === locale) return;
+          locale = next;
+          try { localStorage.setItem(STORE, locale); } catch (_) {}
+          apply();
+        };
+
+        const init = () => {
+          apply();
+          document.querySelectorAll('.lang-btn').forEach((btn) => {
+            btn.addEventListener('click', () => set(btn.dataset.lang));
+          });
+        };
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+          init();
+        }
+
+        return {
+          t,
+          set,
+          get locale() { return locale; },
+          onChange: (fn) => { listeners.add(fn); return () => listeners.delete(fn); },
+        };
+      })();
+      window.i18n = i18n;
+    </script>
 
     <!-- Matomo · analytics.georgebuilds.com · site id 6 -->
     <script>
@@ -2230,14 +2471,28 @@
         if (!meta) return false;
         const tpl = document.getElementById(meta.templateId);
         if (!tpl || !('content' in tpl)) return false;
-        articleModalEyebrow.textContent = 'article ' + meta.number;
+        // eyebrow + byline are chrome (translatable); title + body stay english
+        articleModalEyebrow.textContent = i18n.t('article.eyebrow.prefix') + ' ' + meta.number;
         articleModalTitle.textContent = meta.title;
         articleModalByline.textContent =
-          'george fernandez · ' + meta.dateDisplay + ' · ~' + meta.readMin + ' min read';
+          'george fernandez · ' + meta.dateDisplay + ' · ~' + meta.readMin + ' ' + i18n.t('article.byline.minRead');
         articleModalBody.replaceChildren(tpl.content.cloneNode(true));
         articleModalBody.scrollTop = 0;
         return true;
       };
+
+      // re-render article chrome on locale change if the modal is open
+      i18n.onChange(() => {
+        if (articleModal.classList.contains('open')) {
+          const slug = (location.hash.match(/^#article\/([\w-]+)$/) || [])[1];
+          if (slug && ARTICLES[slug]) {
+            const meta = ARTICLES[slug];
+            articleModalEyebrow.textContent = i18n.t('article.eyebrow.prefix') + ' ' + meta.number;
+            articleModalByline.textContent =
+              'george fernandez · ' + meta.dateDisplay + ' · ~' + meta.readMin + ' ' + i18n.t('article.byline.minRead');
+          }
+        }
+      });
 
       // Set the URL fragment without polluting history. Some embed/sandbox environments
       // strip the History API; fall back to direct location.hash assignment which is
@@ -2330,6 +2585,8 @@
       const toolModalLaunch = document.getElementById('tool-modal-launch');
       let toolLastFocus = null;
 
+      // Translatable strings (tagline, desc, status label, launch label) are
+      // looked up via i18n.t() at render time, not stored here.
       const TOOLS_DATA = {
         degu: {
           name: 'degu',
@@ -2337,14 +2594,13 @@
           freq: '140.85',
           img: 'assets/degu.png',
           portraitLabel: 'degu',
-          tagline: 'a media browser that travels with your media.',
-          desc:
-            'browse, search, tag, preview, A–B-loop, trim, and rename media files. local-first; tags and the SQLite db live next to your media so the whole thing travels as one unit on a drive.',
+          taglineKey: 'tool.degu.tagline',
+          descKey: 'tool.degu.desc',
           stack: ['Preact 10', 'TypeScript', 'Vite 8', 'Tailwind v4', 'Go 1.25', 'SQLite', 'Wails v2', 'ffmpeg.wasm'],
           license: 'AGPL-3.0',
-          status: { label: 'deployed', kind: 'green' },
+          status: { labelKey: 'tool.status.deployed', kind: 'green' },
           repo: { label: 'github.com/georgebuilds/degu', href: 'https://github.com/georgebuilds/degu' },
-          launch: { label: 'launch ↗', href: 'https://georgebuilds.github.io/degu/' },
+          launch: { labelKey: 'tool.modal.launch', href: 'https://georgebuilds.github.io/degu/' },
         },
         kalos: {
           name: 'kalos',
@@ -2352,15 +2608,14 @@
           freq: '141.12',
           img: 'assets/kalos.png',
           portraitLabel: 'kalos',
-          tagline: 'a self-hosted coding agent.',
-          // NB: `desc` is rendered via innerHTML — only allow trusted/static markup here, never user input
-          desc:
-            'POST a task; kalos clones the repo, runs <span class="anthropic">Claude Code</span> headless, commits, pushes, and opens a PR. optional PR review and CI auto-fix on top.',
+          taglineKey: 'tool.kalos.tagline',
+          // NB: desc is rendered via innerHTML — translations are static authored markup, never user input
+          descKey: 'tool.kalos.desc',
           stack: ['Node 22', 'TypeScript', 'Hono', 'better-sqlite3', 'Claude Code', 'GitHub App', 'MCP', 'Docker'],
           license: 'MIT',
-          status: { label: 'inbound', kind: 'amber' },
+          status: { labelKey: 'tool.status.inbound', kind: 'amber' },
           repo: { label: 'github.com/georgebuilds/kalos', href: 'https://github.com/georgebuilds/kalos' },
-          launch: { label: 'preview ↗', href: 'https://georgebuilds.github.io/kalos/' },
+          launch: { labelKey: 'tool.modal.preview', href: 'https://georgebuilds.github.io/kalos/' },
         },
       };
 
@@ -2374,25 +2629,31 @@
         img.src = t.img;
         img.alt = `${t.name} mascot`;
         document.getElementById('tool-modal-portrait-label').textContent = t.portraitLabel;
-        document.getElementById('tool-modal-tagline').textContent = t.tagline;
+        document.getElementById('tool-modal-tagline').textContent = i18n.t(t.taglineKey);
         // desc is trusted markup (see TOOLS_DATA comments)
-        document.getElementById('tool-modal-desc').innerHTML = t.desc;
+        document.getElementById('tool-modal-desc').innerHTML = i18n.t(t.descKey);
         document.getElementById('tool-modal-license').textContent = t.license;
         const repo = document.getElementById('tool-modal-repo');
         repo.textContent = t.repo.label;
         repo.href = t.repo.href;
         const chip = document.getElementById('tool-modal-status-chip');
         chip.querySelector('.dot').className = 'dot ' + t.status.kind;
-        chip.querySelector('.status-label').textContent = t.status.label;
+        chip.querySelector('.status-label').textContent = i18n.t(t.status.labelKey);
         chip.classList.toggle('green-fg', t.status.kind === 'green');
         chip.classList.toggle('amber-fg', t.status.kind === 'amber');
         const stackEl = document.getElementById('tool-modal-stack');
         stackEl.innerHTML = t.stack
           .map((s) => `<span class="chip">${s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c])}</span>`)
           .join('');
-        toolModalLaunch.textContent = t.launch.label;
+        toolModalLaunch.textContent = i18n.t(t.launch.labelKey);
         toolModalLaunch.href = t.launch.href;
       };
+
+      // re-render the tool modal in the new locale if it's open
+      i18n.onChange(() => {
+        const key = toolModal.getAttribute('data-tool-key');
+        if (key && toolModal.classList.contains('open')) populateToolModal(key);
+      });
 
       const openToolModal = (key) => {
         if (toolModal.classList.contains('open')) return;
