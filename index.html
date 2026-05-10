@@ -716,7 +716,31 @@
       }
       .tool-card.streaming.t1 { animation-delay: 420ms; }
       .tool-card.streaming.t2 { animation-delay: 560ms; }
+      .tool-card.streaming.t3 { animation-delay: 700ms; }
       @keyframes card-stream { to { opacity: 1; transform: none; } }
+
+      /* ── Kino icon: antlers overflow the 56×56 frame ─────────────────────
+         The wrapper (.tool-icon) provides the dark chip background and border.
+         The img is absolutely positioned so the top (antlers) protrudes above
+         the icon box while the body/desk stays visible within it. */
+      .kino-frame {
+        position: relative;
+        overflow: visible;
+      }
+      .kino-img {
+        position: absolute;
+        top: -18px;
+        left: 0;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: top center;
+        display: block;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+        border-radius: 0;
+      }
 
       /* =============================================
          PERSONA — "porthole" panel
@@ -1654,7 +1678,7 @@
           <span class="bracket bl"></span><span class="bracket br"></span>
           <div class="panel-header">
             <h2 class="panel-label" id="lbl-tools" data-i18n="panel.tools.label">tools</h2>
-            <span class="panel-meta"><span class="dot amber"></span><span data-i18n="panel.tools.meta">2 items</span></span>
+            <span class="panel-meta"><span class="dot amber"></span><span data-i18n="panel.tools.meta">3 items</span></span>
           </div>
           <div class="panel-body">
             <a class="tool-card streaming t1" href="https://georgebuilds.github.io/degu/" target="_blank" rel="noopener" data-tool="degu" aria-haspopup="dialog">
@@ -1678,6 +1702,21 @@
                   <span class="btn tool-launch" data-i18n="tool.launch.open">open ↗</span>
                 </div>
                 <p class="tool-tag" data-i18n-html="tool.kalos.tag">a self-hosted coding agent — dispatch a task, it opens the pr. now with <span class="anthropic">Claude Code</span>.</p>
+              </div>
+            </a>
+
+            <a class="tool-card streaming t3" href="https://georgebuilds.github.io/kino/" target="_blank" rel="noopener" data-tool="kino" aria-haspopup="dialog">
+              <!-- kino icon: wrapper provides the chip background; img overflows upward so antlers break the frame -->
+              <div class="tool-icon kino-frame" aria-hidden="true">
+                <img class="kino-img" src="assets/kino.png" alt="" loading="lazy" />
+              </div>
+              <div class="tool-main">
+                <div class="tool-row">
+                  <span class="tool-status status-inbound"><span class="dot"></span><span data-i18n="tool.status.inbound">inbound</span></span>
+                  <h3 class="tool-name">kino</h3>
+                  <span class="btn tool-launch" data-i18n="tool.launch.open">open ↗</span>
+                </div>
+                <p class="tool-tag" data-i18n-html="tool.kino.tag">a local-first finance tracker — import ofx/qfx, visualize cash flow as a sankey, all in a sqlite file that travels with you.</p>
               </div>
             </a>
 
@@ -1968,7 +2007,7 @@
               "off the clock i make small tools for myself and ship them. the agentic-coding era turned the habit into an addiction. the cargo bay's overflowing. " +
               '<em>this is the dock.</em>',
             'panel.tools.label': 'tools',
-            'panel.tools.meta': '2 items',
+            'panel.tools.meta': '3 items',
             'tool.status.deployed': 'deployed',
             'tool.status.inbound': 'inbound',
             'tool.launch.open': 'open ↗',
@@ -1982,6 +2021,11 @@
             'tool.kalos.tagline': 'a self-hosted coding agent.',
             'tool.kalos.desc':
               'POST a task; kalos clones the repo, runs <span class="anthropic">Claude Code</span> headless, commits, pushes, and opens a PR. optional PR review and CI auto-fix on top.',
+            'tool.kino.tag':
+              'a local-first finance tracker — import ofx/qfx, visualize cash flow as a sankey, all in a sqlite file that travels with you.',
+            'tool.kino.tagline': 'a local-first personal finance desktop app.',
+            'tool.kino.desc':
+              'track accounts, transactions, budgets, and net worth in a <code>.kino</code> SQLite file on your machine. import OFX/QFX/CSV, visualize cash flow as a sankey diagram. offline always.',
             'tool.modal.launch': 'launch ↗',
             'tool.modal.preview': 'preview ↗',
             'panel.persona.label': 'also building',
@@ -2029,7 +2073,7 @@
               'fuera de horario hago pequeñas herramientas para mí y las publico. la era del agentic-coding convirtió el hábito en adicción. la bodega de carga rebosa. ' +
               '<em>este es el muelle.</em>',
             'panel.tools.label': 'herramientas',
-            'panel.tools.meta': '2 elementos',
+            'panel.tools.meta': '3 elementos',
             'tool.status.deployed': 'desplegado',
             'tool.status.inbound': 'en camino',
             'tool.launch.open': 'abrir ↗',
@@ -2043,6 +2087,11 @@
             'tool.kalos.tagline': 'un agente de código auto-hospedado.',
             'tool.kalos.desc':
               'envía una tarea por POST; kalos clona el repo, ejecuta <span class="anthropic">Claude Code</span> headless, hace commit, push y abre un PR. opcionalmente revisa el PR y arregla CI automáticamente.',
+            'tool.kino.tag':
+              'un rastreador de finanzas local-first — importa ofx/qfx, visualiza el flujo de caja como sankey, todo en un archivo sqlite que viaja contigo.',
+            'tool.kino.tagline': 'una app de finanzas personales local-first.',
+            'tool.kino.desc':
+              'registra cuentas, transacciones, presupuestos y patrimonio en un archivo <code>.kino</code> SQLite en tu máquina. importa OFX/QFX/CSV, visualiza el flujo de caja como diagrama sankey. siempre sin conexión.',
             'tool.modal.launch': 'iniciar ↗',
             'tool.modal.preview': 'vista previa ↗',
             'panel.persona.label': 'también construyendo',
@@ -2616,6 +2665,20 @@
           status: { labelKey: 'tool.status.inbound', kind: 'amber' },
           repo: { label: 'github.com/georgebuilds/kalos', href: 'https://github.com/georgebuilds/kalos' },
           launch: { labelKey: 'tool.modal.preview', href: 'https://georgebuilds.github.io/kalos/' },
+        },
+        kino: {
+          name: 'kino',
+          channel: 'kino',
+          freq: '141.39',
+          img: 'assets/kino.png',
+          portraitLabel: 'kino',
+          taglineKey: 'tool.kino.tagline',
+          descKey: 'tool.kino.desc',
+          stack: ['Go 1.25', 'Wails v2', 'Vue 3', 'TypeScript', 'Vite', 'Tailwind v4', 'SQLite'],
+          license: 'MIT',
+          status: { labelKey: 'tool.status.inbound', kind: 'amber' },
+          repo: { label: 'github.com/georgebuilds/kino', href: 'https://github.com/georgebuilds/kino' },
+          launch: { labelKey: 'tool.modal.preview', href: 'https://georgebuilds.github.io/kino/' },
         },
       };
 
