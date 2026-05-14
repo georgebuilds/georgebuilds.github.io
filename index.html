@@ -723,20 +723,19 @@
 
       /* ── Kino icon: antlers overflow the 56×56 frame ─────────────────────
          The wrapper (.tool-icon) provides the dark chip background and border.
-         The img is absolutely positioned so the top (antlers) protrudes above
-         the icon box while the body/desk stays visible within it. */
+         The img is anchored to bottom:0 so the body/desk stays grounded in
+         the frame and the antlers overflow naturally above. */
       .kino-frame {
         position: relative;
         overflow: visible;
       }
       .kino-img {
         position: absolute;
-        top: -18px;
+        bottom: 0;
+        top: auto;
         left: 0;
         width: 100%;
         height: auto;
-        object-fit: contain;
-        object-position: top center;
         display: block;
         border: none;
         box-shadow: none;
