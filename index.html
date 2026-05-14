@@ -461,12 +461,13 @@
       }
 
       /* top row — full size, opacity settle */
-      .panel.p1, .panel.p2, .panel.persona.p3 {
+      .panel.p1, .panel.p2, .panel.toys.p-toys, .panel.persona.p3 {
         opacity: 0;
         animation: panel-fade 360ms ease-out forwards;
       }
       .panel.p1 { animation-delay: 80ms; }
       .panel.p2 { animation-delay: 200ms; }
+      .panel.toys.p-toys { animation-delay: 270ms; }
       .panel.persona.p3 { animation-delay: 340ms; }
       @keyframes panel-fade { to { opacity: 1; } }
 
@@ -553,6 +554,7 @@
         box-shadow: 0 0 6px var(--accent-glow);
         animation: pulse 1.6s ease-in-out infinite;
       }
+      .panel-meta .dot.teal { background: #4F7C8C; box-shadow: 0 0 5px rgba(79, 124, 140, 0.5); }
 
       .panel-body {
         padding: clamp(14px, 2vh, 18px) clamp(14px, 2vw, 20px);
@@ -604,9 +606,9 @@
       .stream.s2 { animation-delay: 1500ms; }
 
       /* =============================================
-         TOOLS
+         TOOLS / TOYS
          ============================================= */
-      .tools .panel-body { gap: 10px; }
+      .tools .panel-body, .toys .panel-body { gap: 10px; }
       /* The .tools panel itself is the container-query context. When the panel is
          wide (single-column page layout on a roomy viewport), the two tool cards
          arrange side-by-side. When the page snaps to its 2-col grid and tools
@@ -1563,18 +1565,18 @@
          ============================================= */
       @media (min-width: 900px) {
         .grid {
-          /* row 1 (whoami | tools) keeps 1.2fr | 1fr; row 2 (persona | access)
-             also gets 1.2fr | 1fr so persona retains the dominance it earned
-             at full width while still freeing the right column for access */
+          /* col 1: whoami → persona (spans rows 2–3) | col 2: tools → toys → access
+             persona spanning 2 rows gives the Hearth porthole more vertical room */
           grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-          grid-template-rows: minmax(0, auto) minmax(0, auto) minmax(0, 1fr);
+          grid-template-rows: minmax(0, auto) minmax(0, auto) minmax(0, auto) minmax(0, 1fr);
           grid-auto-rows: auto;
         }
         .whoami { grid-column: 1; grid-row: 1; }
         .tools { grid-column: 2; grid-row: 1; }
-        .persona { grid-column: 1; grid-row: 2; }
-        .access { grid-column: 2; grid-row: 2; }
-        .articles { grid-column: 1 / -1; grid-row: 3; }
+        .persona { grid-column: 1; grid-row: 2 / 4; }
+        .toys { grid-column: 2; grid-row: 2; }
+        .access { grid-column: 2; grid-row: 3; }
+        .articles { grid-column: 1 / -1; grid-row: 4; }
       }
       @media (max-width: 620px) {
         .modal { padding: 0; }
@@ -1720,6 +1722,29 @@
               </div>
             </a>
 
+          </div>
+        </section>
+
+        <!-- toys -->
+        <section class="panel toys p-toys" aria-labelledby="lbl-toys">
+          <span class="bracket tl"></span><span class="bracket tr"></span>
+          <span class="bracket bl"></span><span class="bracket br"></span>
+          <div class="panel-header">
+            <h2 class="panel-label" id="lbl-toys" data-i18n="panel.toys.label">toys</h2>
+            <span class="panel-meta"><span class="dot teal"></span><span data-i18n="panel.toys.meta">1 item</span></span>
+          </div>
+          <div class="panel-body">
+            <a class="tool-card streaming t1" href="https://georgebuilds.github.io/llm-arena/" target="_blank" rel="noopener" data-tool="llm-arena" aria-haspopup="dialog">
+              <img class="tool-icon" src="assets/llm-arena.svg" alt="llm arena icon" loading="lazy" />
+              <div class="tool-main">
+                <div class="tool-row">
+                  <span class="tool-status status-deployed"><span class="dot"></span><span data-i18n="tool.status.deployed">deployed</span></span>
+                  <h3 class="tool-name">llm arena</h3>
+                  <span class="btn primary tool-launch" data-i18n="tool.launch.open">open ↗</span>
+                </div>
+                <p class="tool-tag" data-i18n-html="tool.llmarena.tag">pit two LLMs against each other — pick models, assign masks, let them spar.</p>
+              </div>
+            </a>
           </div>
         </section>
 
@@ -2008,6 +2033,8 @@
               '<em>this is the dock.</em>',
             'panel.tools.label': 'tools',
             'panel.tools.meta': '3 items',
+            'panel.toys.label': 'toys',
+            'panel.toys.meta': '1 item',
             'tool.status.deployed': 'deployed',
             'tool.status.inbound': 'inbound',
             'tool.launch.open': 'open ↗',
@@ -2026,6 +2053,10 @@
             'tool.kino.tagline': 'a local-first personal finance desktop app.',
             'tool.kino.desc':
               'track accounts, transactions, budgets, and net worth in a <code>.kino</code> SQLite file on your machine. import OFX/QFX/CSV, visualize cash flow as a sankey diagram. offline always.',
+            'tool.llmarena.tag': 'pit two LLMs against each other — pick models, assign masks, let them spar.',
+            'tool.llmarena.tagline': 'a combat arena for language models.',
+            'tool.llmarena.desc':
+              'pick two models, assign each a persona mask (adversary, scholar, trickster...), drop in a prompt, and watch them spar. judge the bout on clarity, wit, rigor, and more.',
             'tool.modal.launch': 'launch ↗',
             'tool.modal.preview': 'preview ↗',
             'panel.persona.label': 'also building',
@@ -2074,6 +2105,8 @@
               '<em>este es el muelle.</em>',
             'panel.tools.label': 'herramientas',
             'panel.tools.meta': '3 elementos',
+            'panel.toys.label': 'juguetes',
+            'panel.toys.meta': '1 elemento',
             'tool.status.deployed': 'desplegado',
             'tool.status.inbound': 'en camino',
             'tool.launch.open': 'abrir ↗',
@@ -2092,6 +2125,10 @@
             'tool.kino.tagline': 'una app de finanzas personales local-first.',
             'tool.kino.desc':
               'registra cuentas, transacciones, presupuestos y patrimonio en un archivo <code>.kino</code> SQLite en tu máquina. importa OFX/QFX/CSV, visualiza el flujo de caja como diagrama sankey. siempre sin conexión.',
+            'tool.llmarena.tag': 'enfrenta a dos LLMs entre sí — elige modelos, asigna máscaras, déjalos pelear.',
+            'tool.llmarena.tagline': 'una arena de combate para modelos de lenguaje.',
+            'tool.llmarena.desc':
+              'elige dos modelos, asigna a cada uno una máscara de personaje (adversario, erudito, embaucador...), lanza un prompt y mira cómo se enfrentan. juzga el combate por claridad, ingenio, rigor y más.',
             'tool.modal.launch': 'iniciar ↗',
             'tool.modal.preview': 'vista previa ↗',
             'panel.persona.label': 'también construyendo',
@@ -2679,6 +2716,20 @@
           status: { labelKey: 'tool.status.inbound', kind: 'amber' },
           repo: { label: 'github.com/georgebuilds/kino', href: 'https://github.com/georgebuilds/kino' },
           launch: { labelKey: 'tool.modal.preview', href: 'https://georgebuilds.github.io/kino/' },
+        },
+        'llm-arena': {
+          name: 'llm arena',
+          channel: 'arena',
+          freq: '141.66',
+          img: 'assets/llm-arena.svg',
+          portraitLabel: 'arena',
+          taglineKey: 'tool.llmarena.tagline',
+          descKey: 'tool.llmarena.desc',
+          stack: ['Nuxt 3', 'Vue 3', 'TypeScript', 'Tailwind v3', 'Pinia', 'VueUse', 'OpenRouter'],
+          license: 'MIT',
+          status: { labelKey: 'tool.status.deployed', kind: 'green' },
+          repo: { label: 'github.com/georgebuilds/llm-arena', href: 'https://github.com/georgebuilds/llm-arena' },
+          launch: { labelKey: 'tool.modal.launch', href: 'https://georgebuilds.github.io/llm-arena/' },
         },
       };
 
