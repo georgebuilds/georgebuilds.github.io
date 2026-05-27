@@ -1696,7 +1696,19 @@
             <span class="panel-meta"><span class="dot amber"></span><span data-i18n="panel.tools.meta">4 items</span></span>
           </div>
           <div class="panel-body">
-            <a class="tool-card streaming t1" href="https://georgebuilds.github.io/degu/" target="_blank" rel="noopener" data-tool="degu" aria-haspopup="dialog">
+            <a class="tool-card streaming t1" href="https://georgebuilds.github.io/anneal/" target="_blank" rel="noopener" data-tool="anneal" aria-haspopup="dialog">
+              <img class="tool-icon" src="assets/anneal.svg" alt="anneal mark" loading="lazy" />
+              <div class="tool-main">
+                <div class="tool-row">
+                  <span class="tool-status status-deployed"><span class="dot"></span><span data-i18n="tool.status.deployed">deployed</span></span>
+                  <h3 class="tool-name">anneal</h3>
+                  <span class="btn primary tool-launch" data-i18n="tool.launch.open">open ↗</span>
+                </div>
+                <p class="tool-tag" data-i18n-html="tool.anneal.tag">a go tensor compiler — autodiff and optimization as compiler passes over one immutable uop ir. trains on real gpu via webgpu.</p>
+              </div>
+            </a>
+
+            <a class="tool-card streaming t2" href="https://georgebuilds.github.io/degu/" target="_blank" rel="noopener" data-tool="degu" aria-haspopup="dialog">
               <img class="tool-icon" src="assets/degu.png" alt="degu mascot" loading="lazy" />
               <div class="tool-main">
                 <div class="tool-row">
@@ -1708,7 +1720,7 @@
               </div>
             </a>
 
-            <a class="tool-card streaming t2" href="https://georgebuilds.github.io/kalos/" target="_blank" rel="noopener" data-tool="kalos" aria-haspopup="dialog">
+            <a class="tool-card streaming t3" href="https://georgebuilds.github.io/kalos/" target="_blank" rel="noopener" data-tool="kalos" aria-haspopup="dialog">
               <img class="tool-icon" src="assets/kalos.png" alt="kalos mascot" loading="lazy" />
               <div class="tool-main">
                 <div class="tool-row">
@@ -1720,7 +1732,7 @@
               </div>
             </a>
 
-            <a class="tool-card streaming t3" href="https://georgebuilds.github.io/kino/" target="_blank" rel="noopener" data-tool="kino" aria-haspopup="dialog">
+            <a class="tool-card streaming t4" href="https://georgebuilds.github.io/kino/" target="_blank" rel="noopener" data-tool="kino" aria-haspopup="dialog">
               <!-- kino icon: wrapper provides the chip background; img overflows upward so antlers break the frame -->
               <div class="tool-icon kino-frame" aria-hidden="true">
                 <img class="kino-img" src="assets/kino.png" alt="" loading="lazy" />
@@ -1735,41 +1747,6 @@
               </div>
             </a>
 
-            <a class="tool-card streaming t4" href="https://georgebuilds.github.io/anneal/" target="_blank" rel="noopener" data-tool="anneal" aria-haspopup="dialog">
-              <img class="tool-icon" src="assets/anneal.svg" alt="anneal mark" loading="lazy" />
-              <div class="tool-main">
-                <div class="tool-row">
-                  <span class="tool-status status-deployed"><span class="dot"></span><span data-i18n="tool.status.deployed">deployed</span></span>
-                  <h3 class="tool-name">anneal</h3>
-                  <span class="btn primary tool-launch" data-i18n="tool.launch.open">open ↗</span>
-                </div>
-                <p class="tool-tag" data-i18n-html="tool.anneal.tag">a go tensor compiler — autodiff and optimization as compiler passes over one immutable uop ir. trains on real gpu via webgpu.</p>
-              </div>
-            </a>
-
-          </div>
-        </section>
-
-        <!-- toys -->
-        <section class="panel toys p-toys" aria-labelledby="lbl-toys">
-          <span class="bracket tl"></span><span class="bracket tr"></span>
-          <span class="bracket bl"></span><span class="bracket br"></span>
-          <div class="panel-header">
-            <h2 class="panel-label" id="lbl-toys" data-i18n="panel.toys.label">toys</h2>
-            <span class="panel-meta"><span class="dot teal"></span><span data-i18n="panel.toys.meta">1 item</span></span>
-          </div>
-          <div class="panel-body">
-            <a class="tool-card streaming t1" href="https://georgebuilds.github.io/llm-arena/" target="_blank" rel="noopener" data-tool="llm-arena" aria-haspopup="dialog">
-              <img class="tool-icon" src="assets/llm-arena.svg" alt="llm arena icon" loading="lazy" />
-              <div class="tool-main">
-                <div class="tool-row">
-                  <span class="tool-status status-deployed"><span class="dot"></span><span data-i18n="tool.status.deployed">deployed</span></span>
-                  <h3 class="tool-name">llm arena</h3>
-                  <span class="btn primary tool-launch" data-i18n="tool.launch.open">open ↗</span>
-                </div>
-                <p class="tool-tag" data-i18n-html="tool.llmarena.tag">pit two LLMs against each other — pick models, assign masks, let them spar.</p>
-              </div>
-            </a>
           </div>
         </section>
 
@@ -1806,6 +1783,29 @@
               </div>
             </a>
 
+          </div>
+        </section>
+
+        <!-- toys -->
+        <section class="panel toys p-toys" aria-labelledby="lbl-toys">
+          <span class="bracket tl"></span><span class="bracket tr"></span>
+          <span class="bracket bl"></span><span class="bracket br"></span>
+          <div class="panel-header">
+            <h2 class="panel-label" id="lbl-toys" data-i18n="panel.toys.label">toys</h2>
+            <span class="panel-meta"><span class="dot teal"></span><span data-i18n="panel.toys.meta">1 item</span></span>
+          </div>
+          <div class="panel-body">
+            <a class="tool-card streaming t1" href="https://georgebuilds.github.io/llm-arena/" target="_blank" rel="noopener" data-tool="llm-arena" aria-haspopup="dialog">
+              <img class="tool-icon" src="assets/llm-arena.svg" alt="llm arena icon" loading="lazy" />
+              <div class="tool-main">
+                <div class="tool-row">
+                  <span class="tool-status status-deployed"><span class="dot"></span><span data-i18n="tool.status.deployed">deployed</span></span>
+                  <h3 class="tool-name">llm arena</h3>
+                  <span class="btn primary tool-launch" data-i18n="tool.launch.open">open ↗</span>
+                </div>
+                <p class="tool-tag" data-i18n-html="tool.llmarena.tag">pit two LLMs against each other — pick models, assign masks, let them spar.</p>
+              </div>
+            </a>
           </div>
         </section>
 
