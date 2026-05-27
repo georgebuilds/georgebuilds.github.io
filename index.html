@@ -1578,18 +1578,19 @@
          ============================================= */
       @media (min-width: 900px) {
         .grid {
-          /* col 1: whoami → persona (spans rows 2–3) | col 2: tools → toys → access
-             persona spanning 2 rows gives the Hearth porthole more vertical room */
+          /* col 1: whoami → persona (spans rows 2–4) | col 2: tools → pkg → toys → access
+             persona spanning 3 rows gives the Hearth porthole more vertical room */
           grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-          grid-template-rows: minmax(0, auto) minmax(0, auto) minmax(0, auto) minmax(0, 1fr);
+          grid-template-rows: minmax(0, auto) minmax(0, auto) minmax(0, auto) minmax(0, auto) minmax(0, 1fr);
           grid-auto-rows: auto;
         }
         .whoami { grid-column: 1; grid-row: 1; }
         .tools { grid-column: 2; grid-row: 1; }
-        .persona { grid-column: 1; grid-row: 2 / 4; }
-        .toys { grid-column: 2; grid-row: 2; }
-        .access { grid-column: 2; grid-row: 3; }
-        .articles { grid-column: 1 / -1; grid-row: 4; }
+        .persona { grid-column: 1; grid-row: 2 / 5; }
+        .pkg { grid-column: 2; grid-row: 2; }
+        .toys { grid-column: 2; grid-row: 3; }
+        .access { grid-column: 2; grid-row: 4; }
+        .articles { grid-column: 1 / -1; grid-row: 5; }
       }
       @media (max-width: 620px) {
         .modal { padding: 0; }
