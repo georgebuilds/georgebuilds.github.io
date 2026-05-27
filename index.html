@@ -733,6 +733,7 @@
       .tool-card.streaming.t2 { animation-delay: 560ms; }
       .tool-card.streaming.t3 { animation-delay: 700ms; }
       .tool-card.streaming.t4 { animation-delay: 840ms; }
+      .tool-card.streaming.t5 { animation-delay: 980ms; }
       @keyframes card-stream { to { opacity: 1; transform: none; } }
 
       /* ── Kino icon: antlers overflow the 56×56 frame ─────────────────────
@@ -1694,7 +1695,7 @@
           <span class="bracket bl"></span><span class="bracket br"></span>
           <div class="panel-header">
             <h2 class="panel-label" id="lbl-tools" data-i18n="panel.tools.label">tools</h2>
-            <span class="panel-meta"><span class="dot amber"></span><span data-i18n="panel.tools.meta">4 items</span></span>
+            <span class="panel-meta"><span class="dot amber"></span><span data-i18n="panel.tools.meta">5 items</span></span>
           </div>
           <div class="panel-body">
             <a class="tool-card streaming t1" href="https://georgebuilds.github.io/anneal/" target="_blank" rel="noopener" data-tool="anneal" aria-haspopup="dialog">
@@ -1748,6 +1749,18 @@
               </div>
             </a>
 
+            <a class="tool-card streaming t5" href="https://github.com/georgebuilds/packrat" target="_blank" rel="noopener" data-tool="packrat" aria-haspopup="dialog">
+              <img class="tool-icon" src="assets/packrat.svg" alt="packrat mascot" loading="lazy" />
+              <div class="tool-main">
+                <div class="tool-row">
+                  <span class="tool-status status-deployed"><span class="dot"></span><span data-i18n="tool.status.deployed">deployed</span></span>
+                  <h3 class="tool-name">packrat</h3>
+                  <span class="btn tool-launch" data-i18n="pkg.launch.repo">repo ↗</span>
+                </div>
+                <p class="tool-tag" data-i18n-html="tool.packrat.tag">a tui archival tool — mirror git repos, ipfs snapshots, osm regions, wikipedia, rss feeds, and huggingface models from one toml manifest.</p>
+              </div>
+            </a>
+
           </div>
         </section>
 
@@ -1757,22 +1770,10 @@
           <span class="bracket bl"></span><span class="bracket br"></span>
           <div class="panel-header">
             <h2 class="panel-label" id="lbl-pkg" data-i18n="panel.pkg.label">pkg</h2>
-            <span class="panel-meta"><span class="dot mint"></span><span data-i18n="panel.pkg.meta">2 published</span></span>
+            <span class="panel-meta"><span class="dot mint"></span><span data-i18n="panel.pkg.meta">1 published</span></span>
           </div>
           <div class="panel-body">
-            <a class="tool-card streaming t1" href="https://github.com/georgebuilds/packrat" target="_blank" rel="noopener">
-              <img class="tool-icon" src="assets/packrat.svg" alt="packrat mascot" loading="lazy" />
-              <div class="tool-main">
-                <div class="tool-row">
-                  <span class="tool-status status-deployed"><span class="dot"></span><span data-i18n="tool.status.published">published</span></span>
-                  <h3 class="tool-name">packrat</h3>
-                  <span class="btn tool-launch" data-i18n="pkg.launch.repo">repo ↗</span>
-                </div>
-                <p class="tool-tag" data-i18n="pkg.packrat.tag">a tui archival tool — mirror git repos, ipfs snapshots, osm regions, wikipedia, rss feeds, and huggingface models from one toml manifest.</p>
-              </div>
-            </a>
-
-            <a class="tool-card streaming t2" href="https://github.com/georgebuilds/livewire-molecule" target="_blank" rel="noopener">
+            <a class="tool-card streaming t1" href="https://github.com/georgebuilds/livewire-molecule" target="_blank" rel="noopener">
               <img class="tool-icon" src="assets/livewire-molecule.svg" alt="livewire-molecule icon" loading="lazy" />
               <div class="tool-main">
                 <div class="tool-row">
@@ -2094,7 +2095,7 @@
               "off the clock i make small tools for myself and ship them. the agentic-coding era turned the habit into an addiction. the cargo bay's overflowing. " +
               '<em>this is the dock.</em>',
             'panel.tools.label': 'tools',
-            'panel.tools.meta': '4 items',
+            'panel.tools.meta': '5 items',
             'panel.toys.label': 'toys',
             'panel.toys.meta': '1 item',
             'tool.status.deployed': 'deployed',
@@ -2124,11 +2125,17 @@
             'tool.anneal.tagline': 'a Go tensor compiler.',
             'tool.anneal.desc':
               'a from-scratch Go port of the tinygrad rangeify-era compiler core. takes tensor programs, lowers them through graph-rewrite passes, and emits fused GPU kernels via WebGPU. trains MLPs and convnets end-to-end on real hardware.',
+            'tool.packrat.tag':
+              'a tui archival tool — mirror git repos, ipfs snapshots, osm regions, wikipedia, rss feeds, and huggingface models from one toml manifest.',
+            'tool.packrat.tagline': 'a TUI archival tool.',
+            'tool.packrat.desc':
+              'maintain local mirrors of everything you depend on from a single TOML manifest. supports Git repos, IPFS snapshots, OpenStreetMap regions, Wikipedia pages, RSS/Atom feeds, and HuggingFace model repos. built for personal disaster recovery and offline-first resilience.',
             'tool.modal.launch': 'launch ↗',
             'tool.modal.preview': 'preview ↗',
+            'tool.modal.repo': 'repo ↗',
             'tool.status.published': 'published',
             'panel.pkg.label': 'pkg',
-            'panel.pkg.meta': '2 published',
+            'panel.pkg.meta': '1 published',
             'pkg.launch.repo': 'repo ↗',
             'pkg.packrat.tag':
               'a tui archival tool — mirror git repos, ipfs snapshots, osm regions, wikipedia, rss feeds, and huggingface models from one toml manifest.',
@@ -2179,7 +2186,7 @@
               'fuera de horario hago pequeñas herramientas para mí y las publico. la era del agentic-coding convirtió el hábito en adicción. la bodega de carga rebosa. ' +
               '<em>este es el muelle.</em>',
             'panel.tools.label': 'herramientas',
-            'panel.tools.meta': '4 elementos',
+            'panel.tools.meta': '5 elementos',
             'panel.toys.label': 'juguetes',
             'panel.toys.meta': '1 elemento',
             'tool.status.deployed': 'desplegado',
@@ -2209,11 +2216,17 @@
             'tool.anneal.tagline': 'un compilador de tensores en Go.',
             'tool.anneal.desc':
               'un port en Go del núcleo del compilador rangeify-era de tinygrad. toma programas de tensores, los baja a través de pasadas de reescritura de grafos y emite kernels GPU fusionados vía WebGPU. entrena MLPs y convnets de extremo a extremo en hardware real.',
+            'tool.packrat.tag':
+              'una herramienta de archivo tui — espeja repos git, instantáneas ipfs, regiones osm, wikipedia, feeds rss y modelos huggingface desde un solo manifiesto toml.',
+            'tool.packrat.tagline': 'una herramienta de archivo TUI.',
+            'tool.packrat.desc':
+              'mantén espejos locales de todo lo que necesitas desde un solo manifiesto TOML. soporta repos Git, instantáneas IPFS, regiones OpenStreetMap, páginas Wikipedia, feeds RSS/Atom y repos de modelos HuggingFace. pensado para recuperación ante desastres y resiliencia offline.',
             'tool.modal.launch': 'iniciar ↗',
             'tool.modal.preview': 'vista previa ↗',
+            'tool.modal.repo': 'repo ↗',
             'tool.status.published': 'publicado',
             'panel.pkg.label': 'pkg',
-            'panel.pkg.meta': '2 publicados',
+            'panel.pkg.meta': '1 publicado',
             'pkg.launch.repo': 'repo ↗',
             'pkg.packrat.tag':
               'una herramienta de archivo tui — espeja repos git, instantáneas ipfs, regiones osm, wikipedia, feeds rss y modelos huggingface desde un solo manifiesto toml.',
@@ -2818,6 +2831,20 @@
           status: { labelKey: 'tool.status.deployed', kind: 'green' },
           repo: { label: 'github.com/georgebuilds/llm-arena', href: 'https://github.com/georgebuilds/llm-arena' },
           launch: { labelKey: 'tool.modal.launch', href: 'https://georgebuilds.github.io/llm-arena/' },
+        },
+        packrat: {
+          name: 'packrat',
+          channel: 'packrat',
+          freq: '142.20',
+          img: 'assets/packrat.svg',
+          portraitLabel: 'packrat',
+          taglineKey: 'tool.packrat.tagline',
+          descKey: 'tool.packrat.desc',
+          stack: ['Go 1.26+', 'Bubbletea', 'Lipgloss', 'SQLite', 'IPFS'],
+          license: 'MIT',
+          status: { labelKey: 'tool.status.deployed', kind: 'green' },
+          repo: { label: 'github.com/georgebuilds/packrat', href: 'https://github.com/georgebuilds/packrat' },
+          launch: { labelKey: 'tool.modal.repo', href: 'https://github.com/georgebuilds/packrat' },
         },
         anneal: {
           name: 'anneal',
