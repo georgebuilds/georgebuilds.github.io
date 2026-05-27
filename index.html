@@ -461,13 +461,14 @@
       }
 
       /* top row — full size, opacity settle */
-      .panel.p1, .panel.p2, .panel.toys.p-toys, .panel.persona.p3 {
+      .panel.p1, .panel.p2, .panel.toys.p-toys, .panel.pkg.p-pkg, .panel.persona.p3 {
         opacity: 0;
         animation: panel-fade 360ms ease-out forwards;
       }
       .panel.p1 { animation-delay: 80ms; }
       .panel.p2 { animation-delay: 200ms; }
       .panel.toys.p-toys { animation-delay: 270ms; }
+      .panel.pkg.p-pkg  { animation-delay: 310ms; }
       .panel.persona.p3 { animation-delay: 340ms; }
       @keyframes panel-fade { to { opacity: 1; } }
 
@@ -555,6 +556,7 @@
         animation: pulse 1.6s ease-in-out infinite;
       }
       .panel-meta .dot.teal { background: #4F7C8C; box-shadow: 0 0 5px rgba(79, 124, 140, 0.5); }
+      .panel-meta .dot.mint { background: #6ABBA0; box-shadow: 0 0 5px rgba(106, 187, 160, 0.5); }
 
       .panel-body {
         padding: clamp(14px, 2vh, 18px) clamp(14px, 2vw, 20px);
@@ -619,6 +621,17 @@
       }
       @container tools-panel (min-width: 660px) {
         .tools .panel-body {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          align-items: start;
+        }
+      }
+      .panel.pkg {
+        container-type: inline-size;
+        container-name: pkg-panel;
+      }
+      @container pkg-panel (min-width: 560px) {
+        .pkg .panel-body {
           display: grid;
           grid-template-columns: 1fr 1fr;
           align-items: start;
@@ -719,6 +732,7 @@
       .tool-card.streaming.t1 { animation-delay: 420ms; }
       .tool-card.streaming.t2 { animation-delay: 560ms; }
       .tool-card.streaming.t3 { animation-delay: 700ms; }
+      .tool-card.streaming.t4 { animation-delay: 840ms; }
       @keyframes card-stream { to { opacity: 1; transform: none; } }
 
       /* ── Kino icon: antlers overflow the 56×56 frame ─────────────────────
@@ -1679,7 +1693,7 @@
           <span class="bracket bl"></span><span class="bracket br"></span>
           <div class="panel-header">
             <h2 class="panel-label" id="lbl-tools" data-i18n="panel.tools.label">tools</h2>
-            <span class="panel-meta"><span class="dot amber"></span><span data-i18n="panel.tools.meta">3 items</span></span>
+            <span class="panel-meta"><span class="dot amber"></span><span data-i18n="panel.tools.meta">4 items</span></span>
           </div>
           <div class="panel-body">
             <a class="tool-card streaming t1" href="https://georgebuilds.github.io/degu/" target="_blank" rel="noopener" data-tool="degu" aria-haspopup="dialog">
@@ -1721,6 +1735,18 @@
               </div>
             </a>
 
+            <a class="tool-card streaming t4" href="https://georgebuilds.github.io/anneal/" target="_blank" rel="noopener" data-tool="anneal" aria-haspopup="dialog">
+              <img class="tool-icon" src="assets/anneal.svg" alt="anneal mark" loading="lazy" />
+              <div class="tool-main">
+                <div class="tool-row">
+                  <span class="tool-status status-deployed"><span class="dot"></span><span data-i18n="tool.status.deployed">deployed</span></span>
+                  <h3 class="tool-name">anneal</h3>
+                  <span class="btn primary tool-launch" data-i18n="tool.launch.open">open ↗</span>
+                </div>
+                <p class="tool-tag" data-i18n-html="tool.anneal.tag">a go tensor compiler — autodiff and optimization as compiler passes over one immutable uop ir. trains on real gpu via webgpu.</p>
+              </div>
+            </a>
+
           </div>
         </section>
 
@@ -1744,6 +1770,42 @@
                 <p class="tool-tag" data-i18n-html="tool.llmarena.tag">pit two LLMs against each other — pick models, assign masks, let them spar.</p>
               </div>
             </a>
+          </div>
+        </section>
+
+        <!-- pkg — open-source libraries and packages -->
+        <section class="panel pkg p-pkg" aria-labelledby="lbl-pkg">
+          <span class="bracket tl"></span><span class="bracket tr"></span>
+          <span class="bracket bl"></span><span class="bracket br"></span>
+          <div class="panel-header">
+            <h2 class="panel-label" id="lbl-pkg" data-i18n="panel.pkg.label">pkg</h2>
+            <span class="panel-meta"><span class="dot mint"></span><span data-i18n="panel.pkg.meta">2 published</span></span>
+          </div>
+          <div class="panel-body">
+            <a class="tool-card streaming t1" href="https://github.com/georgebuilds/packrat" target="_blank" rel="noopener">
+              <img class="tool-icon" src="assets/packrat.svg" alt="packrat mascot" loading="lazy" />
+              <div class="tool-main">
+                <div class="tool-row">
+                  <span class="tool-status status-deployed"><span class="dot"></span><span data-i18n="tool.status.published">published</span></span>
+                  <h3 class="tool-name">packrat</h3>
+                  <span class="btn tool-launch" data-i18n="pkg.launch.repo">repo ↗</span>
+                </div>
+                <p class="tool-tag" data-i18n="pkg.packrat.tag">a tui archival tool — mirror git repos, ipfs snapshots, osm regions, wikipedia, rss feeds, and huggingface models from one toml manifest.</p>
+              </div>
+            </a>
+
+            <a class="tool-card streaming t2" href="https://github.com/georgebuilds/livewire-molecule" target="_blank" rel="noopener">
+              <img class="tool-icon" src="assets/livewire-molecule.svg" alt="livewire-molecule icon" loading="lazy" />
+              <div class="tool-main">
+                <div class="tool-row">
+                  <span class="tool-status status-deployed"><span class="dot"></span><span data-i18n="tool.status.published">published</span></span>
+                  <h3 class="tool-name">livewire-molecule</h3>
+                  <span class="btn tool-launch" data-i18n="pkg.launch.repo">repo ↗</span>
+                </div>
+                <p class="tool-tag" data-i18n="pkg.livewire.tag">a laravel livewire component for 3d molecular visualization — drop in a smiles or inchi string, get an interactive 3dmol.js viewer.</p>
+              </div>
+            </a>
+
           </div>
         </section>
 
@@ -2031,7 +2093,7 @@
               "off the clock i make small tools for myself and ship them. the agentic-coding era turned the habit into an addiction. the cargo bay's overflowing. " +
               '<em>this is the dock.</em>',
             'panel.tools.label': 'tools',
-            'panel.tools.meta': '3 items',
+            'panel.tools.meta': '4 items',
             'panel.toys.label': 'toys',
             'panel.toys.meta': '1 item',
             'tool.status.deployed': 'deployed',
@@ -2056,8 +2118,21 @@
             'tool.llmarena.tagline': 'a combat arena for language models.',
             'tool.llmarena.desc':
               'pick two models, assign each a persona mask (adversary, scholar, trickster...), drop in a prompt, and watch them spar. judge the bout on clarity, wit, rigor, and more.',
+            'tool.anneal.tag':
+              'a go tensor compiler — autodiff and optimization as compiler passes over one immutable uop ir. trains on real gpu via webgpu.',
+            'tool.anneal.tagline': 'a Go tensor compiler.',
+            'tool.anneal.desc':
+              'a from-scratch Go port of the tinygrad rangeify-era compiler core. takes tensor programs, lowers them through graph-rewrite passes, and emits fused GPU kernels via WebGPU. trains MLPs and convnets end-to-end on real hardware.',
             'tool.modal.launch': 'launch ↗',
             'tool.modal.preview': 'preview ↗',
+            'tool.status.published': 'published',
+            'panel.pkg.label': 'pkg',
+            'panel.pkg.meta': '2 published',
+            'pkg.launch.repo': 'repo ↗',
+            'pkg.packrat.tag':
+              'a tui archival tool — mirror git repos, ipfs snapshots, osm regions, wikipedia, rss feeds, and huggingface models from one toml manifest.',
+            'pkg.livewire.tag':
+              'a laravel livewire component for 3d molecular visualization — drop in a smiles or inchi string, get an interactive 3dmol.js viewer.',
             'panel.persona.label': 'also building',
             'panel.persona.meta': 'private beta · own brand',
             'persona.tagline': 'Characters who remember.',
@@ -2103,7 +2178,7 @@
               'fuera de horario hago pequeñas herramientas para mí y las publico. la era del agentic-coding convirtió el hábito en adicción. la bodega de carga rebosa. ' +
               '<em>este es el muelle.</em>',
             'panel.tools.label': 'herramientas',
-            'panel.tools.meta': '3 elementos',
+            'panel.tools.meta': '4 elementos',
             'panel.toys.label': 'juguetes',
             'panel.toys.meta': '1 elemento',
             'tool.status.deployed': 'desplegado',
@@ -2128,8 +2203,21 @@
             'tool.llmarena.tagline': 'una arena de combate para modelos de lenguaje.',
             'tool.llmarena.desc':
               'elige dos modelos, asigna a cada uno una máscara de personaje (adversario, erudito, embaucador...), lanza un prompt y mira cómo se enfrentan. juzga el combate por claridad, ingenio, rigor y más.',
+            'tool.anneal.tag':
+              'un compilador de tensores en go — autodiff y optimización como pasadas del compilador sobre una ir inmutable. entrena en gpu real vía webgpu.',
+            'tool.anneal.tagline': 'un compilador de tensores en Go.',
+            'tool.anneal.desc':
+              'un port en Go del núcleo del compilador rangeify-era de tinygrad. toma programas de tensores, los baja a través de pasadas de reescritura de grafos y emite kernels GPU fusionados vía WebGPU. entrena MLPs y convnets de extremo a extremo en hardware real.',
             'tool.modal.launch': 'iniciar ↗',
             'tool.modal.preview': 'vista previa ↗',
+            'tool.status.published': 'publicado',
+            'panel.pkg.label': 'pkg',
+            'panel.pkg.meta': '2 publicados',
+            'pkg.launch.repo': 'repo ↗',
+            'pkg.packrat.tag':
+              'una herramienta de archivo tui — espeja repos git, instantáneas ipfs, regiones osm, wikipedia, feeds rss y modelos huggingface desde un solo manifiesto toml.',
+            'pkg.livewire.tag':
+              'un componente livewire de laravel para visualización molecular 3d — pasa una cadena smiles o inchi y obtén un visor interactivo con 3dmol.js.',
             'panel.persona.label': 'también construyendo',
             'panel.persona.meta': 'beta privada · marca propia',
             'persona.tagline': 'Personajes que recuerdan.',
@@ -2729,6 +2817,20 @@
           status: { labelKey: 'tool.status.deployed', kind: 'green' },
           repo: { label: 'github.com/georgebuilds/llm-arena', href: 'https://github.com/georgebuilds/llm-arena' },
           launch: { labelKey: 'tool.modal.launch', href: 'https://georgebuilds.github.io/llm-arena/' },
+        },
+        anneal: {
+          name: 'anneal',
+          channel: 'anneal',
+          freq: '141.93',
+          img: 'assets/anneal.svg',
+          portraitLabel: 'anneal',
+          taglineKey: 'tool.anneal.tagline',
+          descKey: 'tool.anneal.desc',
+          stack: ['Go 1.22+', 'WebGPU', 'WASM', 'WGSL'],
+          license: 'AGPL-3.0',
+          status: { labelKey: 'tool.status.deployed', kind: 'green' },
+          repo: { label: 'github.com/georgebuilds/anneal', href: 'https://github.com/georgebuilds/anneal' },
+          launch: { labelKey: 'tool.modal.launch', href: 'https://georgebuilds.github.io/anneal/' },
         },
       };
 
