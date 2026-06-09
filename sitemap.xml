@@ -31,4 +31,14 @@
       <image:title>kalos — self-hosted coding agent</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://georgebuilds.com/carlos/</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://georgebuilds.com/carlos/branding/carlos-portrait.png</image:loc>
+      <image:title>carlos — pure-Go TUI agent</image:title>
+    </image:image>
+  </url>
 </urlset>
